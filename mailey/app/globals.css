@@ -114,4 +114,16 @@ body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
   }
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge */
+  html,
+  body {
+    -ms-overflow-style: none;
+    /* Hide scrollbar for Firefox */
+    scrollbar-width: none;
+  }
 }

@@ -18,7 +18,7 @@ export default function Navbar() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
-    <header className="fixed w-full z-50 bg-white/90 backdrop-blur-sm shadow-sm">
+    <header className="fixed w-full z-50 bg-[var(--light-purple)]/90 backdrop-blur-sm shadow-sm">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="hidden md:flex items-center justify-center flex-1">
@@ -89,8 +89,8 @@ function NavLink({
       href={link.href}
       className={`px-3 py-2 mx-2 rounded-md text-sm font-medium transition-colors duration-200 ${
         pathname === link.href
-          ? "text-[#F0532B] font-bold"
-          : "text-gray-700 hover:text-[#F0532B]"
+          ? "text-[#CDD0E7] font-bold"
+          : "text-[#FFFDD0] hover:text-[#CDD0E7]"
       }`}
     >
       {link.name}
