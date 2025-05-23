@@ -18,9 +18,9 @@ export default function Navbar() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
-    <header className="fixed w-full z-50 bg-[var(--light-purple)]/90 backdrop-blur-sm shadow-sm">
+    <header className="fixed w-full z-50 bg-[#f9f9f9]/90 backdrop-blur-sm shadow-sm">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
+        <div className="flex justify-between h-20">
           <div className="hidden md:flex items-center justify-center flex-1">
             {navLinks.slice(0, 3).map((link) => (
               <NavLink key={link.name} link={link} pathname={pathname} />
@@ -61,8 +61,8 @@ export default function Navbar() {
                   href={link.href}
                   className={`block px-3 py-2 rounded-md text-base font-medium ${
                     pathname === link.href
-                      ? "text-[#F0532B] font-bold"
-                      : "text-gray-700 hover:text-[#F0532B] hover:bg-gray-50"
+                      ? "text-[#828bc5] font-bold"
+                      : "text-gray-700 hover:text-[#828bc5] hover:bg-gray-50"
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -72,6 +72,8 @@ export default function Navbar() {
             </div>
           </div>
         )}
+        {/* Gradient navbar */}
+        <div className="fixed w-full z-40 top-20 left-0 h-3 bg-gradient-to-r from-[#3c3883] to-[#828bc5]"></div>
       </nav>
     </header>
   );
@@ -89,8 +91,8 @@ function NavLink({
       href={link.href}
       className={`px-3 py-2 mx-2 rounded-md text-sm font-medium transition-colors duration-200 ${
         pathname === link.href
-          ? "text-[#CDD0E7] font-bold"
-          : "text-[#FFFDD0] hover:text-[#CDD0E7]"
+          ? "text-[#828bc5] font-bold"
+          : "text-gray-700 hover:text-[#828bc5]"
       }`}
     >
       {link.name}
