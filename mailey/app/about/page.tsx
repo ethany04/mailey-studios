@@ -10,14 +10,45 @@ import {
   Facebook,
   Twitter,
   Mail,
+  Book,
+  MapPin,
+  Camera,
 } from "lucide-react";
 
 const portfolioImages = [
-  { src: "/placeholder.svg?height=400&width=600", alt: "Portfolio image 1" },
-  { src: "/placeholder.svg?height=400&width=600", alt: "Portfolio image 2" },
-  { src: "/placeholder.svg?height=400&width=600", alt: "Portfolio image 3" },
-  { src: "/placeholder.svg?height=400&width=600", alt: "Portfolio image 4" },
-  { src: "/placeholder.svg?height=400&width=600", alt: "Portfolio image 5" },
+  {
+    src: "/about/senior1.jpg",
+    alt: "Senior shoot 1",
+    hasText: true,
+    text: "Senior Shoots",
+  },
+  {
+    src: "/about/senior2.jpg",
+    alt: "senior shoot 2",
+    hasText: false,
+  },
+  {
+    src: "/about/editorial1.jpg",
+    alt: "editorial 1",
+    hasText: true,
+    text: "Editorials",
+  },
+  {
+    src: "/about/editorial2.jpg",
+    alt: "editorial 2",
+    hasText: false,
+  },
+  {
+    src: "/about/lifestyle1.jpg",
+    alt: "lifestyle 1",
+    hasText: true,
+    text: "Lifestyle",
+  },
+  {
+    src: "/about/lifestyle2.jpg",
+    alt: "lifestyle 2",
+    hasText: false,
+  },
 ];
 
 export default function AboutPage() {
@@ -34,7 +65,7 @@ export default function AboutPage() {
   };
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-[#BAC3FF]">
       {/* Hero Section with Headshot */}
       <section className="py-20 px-4 md:px-8">
         <div className="max-w-6xl mx-auto">
@@ -85,73 +116,108 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Three Description Sections */}
+      {/* Our Story Section */}
       <section className="py-16 px-4 md:px-8 bg-gray-50">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {/* History/About Mailey Studios */}
-            <div className="text-center">
-              <div className="w-16 h-16 bg-[#DDA5AF] rounded-full mx-auto mb-6 flex items-center justify-center">
-                <span className="text-white font-bold text-xl">01</span>
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            <div className="lg:w-1/3 text-center lg:text-left">
+              <div className="flex items-center justify-center lg:justify-start mb-6">
+                <div className="w-20 h-20 bg-[#DDA5AF] rounded-full flex items-center justify-center mr-4">
+                  <Book size={32} className="text-white" />
+                </div>
+                <h3 className="text-3xl font-bold text-[#3C3883]">Our Story</h3>
               </div>
-              <h3 className="text-2xl font-bold text-[#3C3883] mb-4">
-                Our Story
-              </h3>
               <p className="text-gray-700 leading-relaxed">
-                We began our photography journey as "A&M Photography" in 2019 as
-                a way to pursue two of our passions: creativity and service.
-                Long before we considered starting a business, we had a desire
-                to create. Through photography, we found excitement in exploring
-                different locations and the perfect lighting to suit our vision.
-                But our pastime developed into something more than that. We saw
-                an opportunity to share our passion with the College Station
-                community, hoping photography would bring our clients the same
-                joy it brought us. When the pandemic began, the sense of
-                community we loved to capture through our photography was less
-                apparent. However, this only strengthened our mission. We used
-                our creative outlet to provide a feeling of togetherness and
-                encourage self expression in a time of isolation. Five years
-                after we began "A&M Photography," that mission stays true with
-                Mailey Studios. We want to celebrate you, your achievements,
-                milestones, and memories—big or small, and we hope that our
-                photography speaks to you like it has in our lives!
+                Mailey Studios was born from a simple dream - to create timeless
+                photographs that capture the essence of every moment. Founded in
+                2018, we've grown from a small home studio to a full-service
+                photography business, always maintaining our commitment to
+                artistic excellence and personal connection with every client.
               </p>
             </div>
-
-            {/* What got me into photography */}
-            <div className="text-center">
-              <div className="w-16 h-16 bg-[#F88331] rounded-full mx-auto mb-6 flex items-center justify-center">
-                <span className="text-white font-bold text-xl">02</span>
+            <div className="lg:w-2/3">
+              <div className="relative h-64 rounded-lg overflow-hidden shadow-lg">
+                <Image
+                  src="/placeholder.svg?height=256&width=600"
+                  alt="Mailey Studios history"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#DDA5AF]/20 to-transparent"></div>
               </div>
-              <h3 className="text-2xl font-bold text-[#3C3883] mb-4">
-                My Journey
-              </h3>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* My Journey Section */}
+      <section className="py-16 px-4 md:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
+            <div className="lg:w-1/3 text-center lg:text-left">
+              <div className="flex items-center justify-center lg:justify-start mb-6">
+                <div className="w-20 h-20 bg-[#F88331] rounded-full flex items-center justify-center mr-4">
+                  <MapPin size={32} className="text-white" />
+                </div>
+                <h3 className="text-3xl font-bold text-[#3C3883]">
+                  My Journey
+                </h3>
+              </div>
               <p className="text-gray-700 leading-relaxed">
-                I got into photography in seventh grade, but I started my
-                business with one of my best friends, Ally Duan in April of
-                2024.
+                My love for photography began during a family trip to the
+                mountains when I was twelve. I borrowed my father's old film
+                camera and was mesmerized by how a single frame could hold an
+                entire universe of emotion. That spark ignited a lifelong
+                passion for storytelling through imagery, leading me to pursue
+                formal training and eventually establish my own studio.
               </p>
             </div>
-
-            {/* What I do outside of business */}
-            <div className="text-center">
-              <div className="w-16 h-16 bg-[#828BC5] rounded-full mx-auto mb-6 flex items-center justify-center">
-                <span className="text-white font-bold text-xl">03</span>
+            <div className="lg:w-2/3">
+              <div className="relative h-64 rounded-lg overflow-hidden shadow-lg">
+                <Image
+                  src="/placeholder.svg?height=256&width=600"
+                  alt="Photography journey"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-l from-[#F88331]/20 to-transparent"></div>
               </div>
-              <h3 className="text-2xl font-bold text-[#3C3883] mb-4">
-                Beyond the Lens
-              </h3>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Beyond the Lens Section */}
+      <section className="py-16 px-4 md:px-8 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            <div className="lg:w-1/3 text-center lg:text-left">
+              <div className="flex items-center justify-center lg:justify-start mb-6">
+                <div className="w-20 h-20 bg-[#828BC5] rounded-full flex items-center justify-center mr-4">
+                  <Camera size={32} className="text-white" />
+                </div>
+                <h3 className="text-3xl font-bold text-[#3C3883]">
+                  Beyond the Lens
+                </h3>
+              </div>
               <p className="text-gray-700 leading-relaxed">
-                I am a full time student at the University of Michigan, and in
-                my free time I enjoy being a part of the boxing club, art, and
-                doing shoots with magazines on campus. Through these magazines,
-                I have been able to shoot more editorial images that are
-                personal to me! I am so passionate about photography and
-                pursuing it on many fronts. I want to capture all of your
-                memories–not only to celebrate your achievements, and special
-                moments, but to remind you to really savor and live in the
-                moment.
+                When I'm not behind the camera, you'll find me hiking mountain
+                trails with my golden retriever, Max, experimenting with new
+                recipes in the kitchen, or curled up with a good book and a cup
+                of coffee. I believe that living a full life outside of work
+                enriches my perspective and brings authenticity to my
+                photography.
               </p>
+            </div>
+            <div className="lg:w-2/3">
+              <div className="relative h-64 rounded-lg overflow-hidden shadow-lg">
+                <Image
+                  src="/placeholder.svg?height=256&width=600"
+                  alt="Life beyond photography"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#828BC5]/20 to-transparent"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -166,17 +232,31 @@ export default function AboutPage() {
 
           <div className="relative">
             <div className="overflow-hidden rounded-lg shadow-2xl">
-              <div className="relative h-96 md:h-[500px]">
-                <Image
-                  src={
-                    portfolioImages[currentImageIndex].src || "/placeholder.svg"
-                  }
-                  alt={portfolioImages[currentImageIndex].alt}
-                  fill
-                  className="object-cover transition-all duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-              </div>
+              <Link href="/gallery" className="block">
+                <div className="relative h-96 md:h-[500px] cursor-pointer group">
+                  <Image
+                    src={
+                      portfolioImages[currentImageIndex].src ||
+                      "/placeholder.svg"
+                    }
+                    alt={portfolioImages[currentImageIndex].alt}
+                    fill
+                    className="object-cover transition-all duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+
+                  {/* Text Overlay for alternating images */}
+                  {portfolioImages[currentImageIndex].hasText && (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="bg-black/50 backdrop-blur-sm px-8 py-4 rounded-lg">
+                        <h3 className="text-2xl md:text-3xl font-bold text-white text-center">
+                          {portfolioImages[currentImageIndex].text}
+                        </h3>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </Link>
             </div>
 
             {/* Navigation Buttons */}
@@ -207,33 +287,6 @@ export default function AboutPage() {
                 />
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Call to Action */}
-      <section className="py-16 px-4 md:px-8 bg-[#3C3883]">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Ready to Create Something Beautiful?
-          </h2>
-          <p className="text-lg text-white/90 mb-8 leading-relaxed">
-            Let's work together to capture your special moments and create
-            memories that will last a lifetime.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/booking"
-              className="bg-[#F0532B] hover:bg-[#F88331] text-white font-bold py-3 px-8 rounded-full transition-colors duration-300"
-            >
-              Book a Session
-            </Link>
-            <Link
-              href="/contact"
-              className="border-2 border-white text-white hover:bg-white hover:text-[#3C3883] font-bold py-3 px-8 rounded-full transition-all duration-300"
-            >
-              Get in Touch
-            </Link>
           </div>
         </div>
       </section>

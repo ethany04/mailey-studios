@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${dmSans.variable} font-sans`}>
         <Navbar />
-        <div className="pt-16">{children}</div>
+        <div className="pt-23">{children}</div>
       </body>
     </html>
   );

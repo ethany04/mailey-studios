@@ -18,7 +18,7 @@ export default function Navbar() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
-    <header className="fixed w-full z-50 bg-[#f9f9f9]/90 backdrop-blur-sm shadow-sm">
+    <header className="fixed w-full z-50 bg-[#f9f9f9] backdrop-blur-sm shadow-sm">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20">
           <div className="hidden md:flex items-center justify-center flex-1">
