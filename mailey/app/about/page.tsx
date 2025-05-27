@@ -117,7 +117,7 @@ export default function AboutPage() {
       </section>
 
       {/* Our Story Section */}
-      <section className="py-16 px-4 md:px-8 bg-gray-50">
+      <section className="py-16 px-4 md:px-8 bg-[#CAD1FF]">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-1/3 text-center lg:text-left">
@@ -128,18 +128,19 @@ export default function AboutPage() {
                 <h3 className="text-3xl font-bold text-[#3C3883]">Our Story</h3>
               </div>
               <p className="text-gray-700 leading-relaxed">
-                Mailey Studios was born from a simple dream - to create timeless
-                photographs that capture the essence of every moment. Founded in
-                2018, we've grown from a small home studio to a full-service
-                photography business, always maintaining our commitment to
-                artistic excellence and personal connection with every client.
+                I want to capture all of your memories–not only to celebrate
+                your achievements, and special moments, but to remind you to
+                really savor and live in the moment. We want to celebrate you,
+                your achievements, milestones, and memories—big or small, and we
+                hope that our photography speaks to you like it has in our
+                lives!
               </p>
             </div>
             <div className="lg:w-2/3">
               <div className="relative h-64 rounded-lg overflow-hidden shadow-lg">
                 <Image
-                  src="/placeholder.svg?height=256&width=600"
-                  alt="Mailey Studios history"
+                  src="/about/cstat.jpg"
+                  alt="CSTAT"
                   fill
                   className="object-cover"
                 />
@@ -163,19 +164,21 @@ export default function AboutPage() {
                 </h3>
               </div>
               <p className="text-gray-700 leading-relaxed">
-                My love for photography began during a family trip to the
-                mountains when I was twelve. I borrowed my father's old film
-                camera and was mesmerized by how a single frame could hold an
-                entire universe of emotion. That spark ignited a lifelong
-                passion for storytelling through imagery, leading me to pursue
-                formal training and eventually establish my own studio.
+                I got into photography in seventh grade, but I started my
+                business with one of my best friends, Ally Duan in April of
+                2024. We began our photography journey as "A&M Photography" in
+                2019 as a way to pursue two of our passions: creativity and
+                service. Long before we considered starting a business, we had a
+                desire to create. Through photography, we found excitement in
+                exploring different locations and hoping it would bring our
+                clients the same joy it brought us.
               </p>
             </div>
             <div className="lg:w-2/3">
               <div className="relative h-64 rounded-lg overflow-hidden shadow-lg">
                 <Image
-                  src="/placeholder.svg?height=256&width=600"
-                  alt="Photography journey"
+                  src="/about/camera.jpg"
+                  alt="Camera"
                   fill
                   className="object-cover"
                 />
@@ -187,7 +190,7 @@ export default function AboutPage() {
       </section>
 
       {/* Beyond the Lens Section */}
-      <section className="py-16 px-4 md:px-8 bg-gray-50">
+      <section className="py-16 px-4 md:px-8 bg-[#CAD1FF]">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-1/3 text-center lg:text-left">
@@ -200,19 +203,19 @@ export default function AboutPage() {
                 </h3>
               </div>
               <p className="text-gray-700 leading-relaxed">
-                When I'm not behind the camera, you'll find me hiking mountain
-                trails with my golden retriever, Max, experimenting with new
-                recipes in the kitchen, or curled up with a good book and a cup
-                of coffee. I believe that living a full life outside of work
-                enriches my perspective and brings authenticity to my
-                photography.
+                I am a full time student at the University of Michigan, and in
+                my free time I enjoy being a part of the boxing club, art, and
+                doing shoots with magazines on campus. Through these magazines,
+                I have been able to shoot more editorial images that are
+                personal to me! I am so passionate about photography and
+                pursuing it on many fronts.
               </p>
             </div>
             <div className="lg:w-2/3">
               <div className="relative h-64 rounded-lg overflow-hidden shadow-lg">
                 <Image
-                  src="/placeholder.svg?height=256&width=600"
-                  alt="Life beyond photography"
+                  src="/about/boxing.jpg"
+                  alt="Boxing"
                   fill
                   className="object-cover"
                 />
