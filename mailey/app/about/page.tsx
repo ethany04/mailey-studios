@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   ChevronLeft,
   ChevronRight,
@@ -15,54 +15,56 @@ import {
   Camera,
 } from "lucide-react";
 
-const portfolioImages = [
-  {
-    src: "/about/senior1.jpg",
-    alt: "Senior shoot 1",
-    hasText: true,
-    text: "Senior Shoots",
-  },
-  {
-    src: "/about/senior2.jpg",
-    alt: "senior shoot 2",
-    hasText: false,
-  },
-  {
-    src: "/about/editorial1.jpg",
-    alt: "editorial 1",
-    hasText: true,
-    text: "Editorials",
-  },
-  {
-    src: "/about/editorial2.jpg",
-    alt: "editorial 2",
-    hasText: false,
-  },
-  {
-    src: "/about/lifestyle1.jpg",
-    alt: "lifestyle 1",
-    hasText: true,
-    text: "Lifestyle",
-  },
-  {
-    src: "/about/lifestyle2.jpg",
-    alt: "lifestyle 2",
-    hasText: false,
-  },
+// Define image sets for each category
+const seniorImages = [
+  { src: "/about/senior1.jpg", alt: "Senior shoot 1" },
+  { src: "/about/senior2.jpg", alt: "Senior shoot 2" },
+];
+
+const editorialImages = [
+  { src: "/about/editorial1.jpg", alt: "Editorial 1" },
+  { src: "/about/editorial2.jpg", alt: "Editorial 2" },
+];
+
+const lifestyleImages = [
+  { src: "/about/lifestyle1.jpg", alt: "Lifestyle 1" },
+  { src: "/about/lifestyle2.jpg", alt: "Lifestyle 2" },
 ];
 
 export default function AboutPage() {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  // State for tracking current image index for each category
+  const [seniorIndex, setSeniorIndex] = useState(0);
+  const [editorialIndex, setEditorialIndex] = useState(0);
+  const [lifestyleIndex, setLifestyleIndex] = useState(0);
 
-  const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % portfolioImages.length);
-  };
+  // State for fade transitions
+  const [seniorFading, setSeniorFading] = useState(false);
+  const [editorialFading, setEditorialFading] = useState(false);
+  const [lifestyleFading, setLifestyleFading] = useState(false);
 
-  const prevImage = () => {
-    setCurrentImageIndex(
-      (prev) => (prev - 1 + portfolioImages.length) % portfolioImages.length
-    );
-  };
+  // Auto-rotate images every 5 seconds with fade effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      // Start fade out
+      setSeniorFading(true);
+      setEditorialFading(true);
+      setLifestyleFading(true);
+
+      // After fade out completes, change images and fade in
+      setTimeout(() => {
+        setSeniorIndex((prev) => (prev + 1) % seniorImages.length);
+        setEditorialIndex((prev) => (prev + 1) % editorialImages.length);
+        setLifestyleIndex((prev) => (prev + 1) % lifestyleImages.length);
+
+        // Start fade in
+        setSeniorFading(false);
+        setEditorialFading(false);
+        setLifestyleFading(false);
+      }, 500); // Half second for fade out
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <main className="min-h-screen bg-[#BAC3FF]">
@@ -83,7 +85,7 @@ export default function AboutPage() {
             </div>
             <div className="lg:w-1/2 text-center lg:text-left">
               <h1 className="text-4xl md:text-5xl font-bold text-[#3C3883] mb-6">
-                Hi! I'm <span className="text-[#3c3883]">Maggie!</span>
+                Hi! I'm Maggie!
               </h1>
               <p className="text-lg text-gray-700 leading-relaxed mb-8">
                 I'm your photographer for Mailey (may-lee) Studios!
@@ -226,69 +228,88 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Portfolio Carousel */}
-      <section className="py-20 px-4 md:px-8">
+      {/* Three-Column Portfolio Section */}
+      <section className="py-20 px-4 md:px-8 ">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-[#3C3883] mb-12">
             Recent Work
           </h2>
 
-          <div className="relative">
-            <div className="overflow-hidden rounded-lg shadow-2xl">
-              <Link href="/gallery" className="block">
-                <div className="relative h-96 md:h-[500px] cursor-pointer group">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Seniors Column */}
+            <div className="flex flex-col items-center">
+              <h3 className="text-2xl font-bold text-[#3C3883] mb-4 uppercase tracking-wider">
+                Seniors
+              </h3>
+              <Link href="/gallery" className="block w-full">
+                <div className="relative aspect-[3/4] w-full cursor-pointer group rounded-lg overflow-hidden border-4 border-[#3C3883]">
                   <Image
-                    src={
-                      portfolioImages[currentImageIndex].src ||
-                      "/placeholder.svg"
-                    }
-                    alt={portfolioImages[currentImageIndex].alt}
+                    src={seniorImages[seniorIndex].src || "/placeholder.svg"}
+                    alt={seniorImages[seniorIndex].alt}
                     fill
-                    className="object-cover transition-all duration-500 group-hover:scale-105"
+                    className={`object-cover transition-all duration-500 group-hover:scale-105 ${
+                      seniorFading ? "opacity-0" : "opacity-100"
+                    }`}
+                    style={{
+                      transition:
+                        "opacity 500ms ease-in-out, transform 500ms ease-in-out",
+                    }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-
-                  {/* Text Overlay for alternating images */}
-                  {portfolioImages[currentImageIndex].hasText && (
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="bg-black/50 backdrop-blur-sm px-8 py-4 rounded-lg">
-                        <h3 className="text-2xl md:text-3xl font-bold text-white text-center">
-                          {portfolioImages[currentImageIndex].text}
-                        </h3>
-                      </div>
-                    </div>
-                  )}
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 flex items-center justify-center"></div>
                 </div>
               </Link>
             </div>
 
-            {/* Navigation Buttons */}
-            <button
-              onClick={prevImage}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-[#3C3883] p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
-            >
-              <ChevronLeft size={24} />
-            </button>
-            <button
-              onClick={nextImage}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-[#3C3883] p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
-            >
-              <ChevronRight size={24} />
-            </button>
+            {/* Editorials Column */}
+            <div className="flex flex-col items-center">
+              <h3 className="text-2xl font-bold text-[#3C3883] mb-4 uppercase tracking-wider">
+                Editorials
+              </h3>
+              <Link href="/gallery" className="block w-full">
+                <div className="relative aspect-[3/4] w-full cursor-pointer group rounded-lg overflow-hidden border-4 border-[#3C3883]">
+                  <Image
+                    src={
+                      editorialImages[editorialIndex].src || "/placeholder.svg"
+                    }
+                    alt={editorialImages[editorialIndex].alt}
+                    fill
+                    className={`object-cover transition-all duration-500 group-hover:scale-105 ${
+                      editorialFading ? "opacity-0" : "opacity-100"
+                    }`}
+                    style={{
+                      transition:
+                        "opacity 500ms ease-in-out, transform 500ms ease-in-out",
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 flex items-center justify-center"></div>
+                </div>
+              </Link>
+            </div>
 
-            {/* Dots Indicator */}
-            <div className="flex justify-center mt-6 space-x-2">
-              {portfolioImages.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentImageIndex(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === currentImageIndex
-                      ? "bg-[#F0532B] scale-125"
-                      : "bg-gray-300 hover:bg-gray-400"
-                  }`}
-                />
-              ))}
+            {/* Lifestyle Column */}
+            <div className="flex flex-col items-center">
+              <h3 className="text-2xl font-bold text-[#3C3883] mb-4 uppercase tracking-wider">
+                Lifestyle
+              </h3>
+              <Link href="/gallery" className="block w-full">
+                <div className="relative aspect-[3/4] w-full cursor-pointer group rounded-lg overflow-hidden border-4 border-[#3C3883]">
+                  <Image
+                    src={
+                      lifestyleImages[lifestyleIndex].src || "/placeholder.svg"
+                    }
+                    alt={lifestyleImages[lifestyleIndex].alt}
+                    fill
+                    className={`object-cover transition-all duration-500 group-hover:scale-105 ${
+                      lifestyleFading ? "opacity-0" : "opacity-100"
+                    }`}
+                    style={{
+                      transition:
+                        "opacity 500ms ease-in-out, transform 500ms ease-in-out",
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 flex items-center justify-center"></div>
+                </div>
+              </Link>
             </div>
           </div>
         </div>
