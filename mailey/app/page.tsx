@@ -39,9 +39,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Transparent Spacer */}
-      <div className="h-40 relative z-10"></div>
-
       {/* Booking Section */}
       <section className="relative z-10 py-16 px-4 md:px-8 bg-white/90 backdrop-blur-sm">
         <div className="max-w-5xl mx-auto">
@@ -67,9 +64,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Transparent Spacer */}
-      <div className="h-40 relative z-10"></div>
 
       {/* Pricing Section */}
       <section className="relative z-10 py-16 px-4 md:px-8 bg-white/90 backdrop-blur-sm">
@@ -97,9 +91,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Transparent Spacer */}
-      <div className="h-40 relative z-10"></div>
-
       {/* Gallery Section */}
       <section className="relative z-10 py-16 px-4 md:px-8 bg-white/90 backdrop-blur-sm">
         <div className="max-w-5xl mx-auto">
@@ -125,9 +116,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Transparent Spacer */}
-      <div className="h-40 relative z-10"></div>
 
       {/* Contact Section */}
       <section className="relative z-10 py-16 px-4 md:px-8 bg-white/90 backdrop-blur-sm">
@@ -155,9 +143,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Transparent Spacer */}
-      <div className="h-40 relative z-10"></div>
-
       {/* About Section */}
       <section className="relative z-10 py-16 px-4 md:px-8 bg-white/90 backdrop-blur-sm">
         <div className="max-w-5xl mx-auto">
@@ -183,9 +168,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Final Spacer */}
-      <div className="h-40 relative z-10"></div>
     </main>
   );
 }
