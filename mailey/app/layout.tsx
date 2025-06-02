@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${dmSans.variable} font-sans`}>
         <Navbar />
-        <div className="pt-23">{children}</div>
+        <div>{children}</div>
         <Footer />
       </body>
     </html>
