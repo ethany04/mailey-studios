@@ -3,6 +3,20 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 export default function Home() {
+  // Sample gallery images for the carousel
+  const galleryImages = [
+    { src: "/about/senior1.jpg", alt: "Portfolio image 1" },
+    { src: "/about/editorial1.jpg", alt: "Portfolio image 2" },
+    { src: "/about/lifestyle1.jpg", alt: "Portfolio image 3" },
+    { src: "/about/senior2.jpg", alt: "Portfolio image 4" },
+    { src: "/about/editorial2.jpg", alt: "Portfolio image 5" },
+    { src: "/about/lifestyle2.jpg", alt: "Portfolio image 6" },
+    { src: "/about/lifestyle2.jpg", alt: "Portfolio image 7" },
+    { src: "/about/lifestyle2.jpg", alt: "Portfolio image 8" },
+    { src: "/about/lifestyle2.jpg", alt: "Portfolio image 9" },
+    { src: "/about/lifestyle2.jpg", alt: "Portfolio image 10" },
+  ];
+
   return (
     <main className="min-h-screen relative">
       {/* Fixed Background Image */}
@@ -19,153 +33,153 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative h-screen w-full flex flex-col items-center justify-center z-10">
-        <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-wide">
+        <h1 className="text-9xl md:text-7xl font-bold text-white mb-6 tracking-wide">
           Live in the moment
         </h1>
         <Link
           href="/booking"
-          className="bg-[#F0532B] hover:bg-[#F88331] text-white font-bold py-3 px-8 rounded-full transition-colors duration-300"
+          className="bg-white text-black font-bold py-3 px-8 rounded-full transition-colors duration-300"
         >
           Book a Session
         </Link>
       </section>
 
-      {/* Services Title */}
-      <section className="relative z-10 py-16 px-4 md:px-8 bg-white/90 backdrop-blur-sm">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 text-[#3C3883]">
-            Our Services
+      {/* Meet the Photographer Section */}
+      <section className="relative z-10 w-full bg-white py-20">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            <div className="lg:w-2/3">
+              <h2 className="text-4xl md:text-6xl font-bold text-black mb-8">
+                Hi, I'm Maggie
+              </h2>
+              <div className="space-y-6 text-lg md:text-xl text-gray-700">
+                <span className="block">
+                  I'm your photographer for Mailey Studios! I want to capture
+                  all of your memories–not only to celebrate your achievements,
+                  and special moments, but to remind you to really savor and
+                  live in the moment.
+                </span>
+                <span className="block">
+                  We want to celebrate you, your achievements, milestones, and
+                  memories—big or small, and we hope that our photography speaks
+                  to you like it has in our lives!
+                </span>
+                <span className="block">
+                  Through photography, we found excitement in exploring
+                  different locations and hoping it would bring our clients the
+                  same joy it brought us.
+                </span>
+              </div>
+            </div>
+            <div className="lg:w-1/3">
+              <div className="relative w-80 h-96 mx-auto">
+                <Image
+                  src="/maggie_headshot.jpeg"
+                  alt="Maggie - Mailey Studios photographer"
+                  fill
+                  className="object-cover grayscale"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Booking Process Section */}
+      <section className="relative z-10 w-full bg-gray-100 py-20">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-6xl font-bold text-black mb-8">
+              Ready to book?
+            </h2>
+            <span className="text-lg md:text-xl text-gray-700 block mb-8">
+              Our simple 5-step process makes booking your session easy and
+              stress-free.
+            </span>
+            <Link
+              href="/booking"
+              className="inline-flex items-center bg-black text-white px-8 py-4 font-bold hover:bg-gray-800 transition-colors duration-300"
+            >
+              Start Booking Process <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
+          </div>
+
+          {/* Booking Process Images */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+            <div className="relative h-64">
+              <Image
+                src="/placeholder.svg?height=300&width=400"
+                alt="Choose your package"
+                fill
+                className="object-cover grayscale"
+              />
+              <div className="absolute inset-0 bg-black/20"></div>
+              <div className="absolute bottom-4 left-4">
+                <span className="text-white font-bold text-lg">
+                  Choose Package
+                </span>
+              </div>
+            </div>
+            <div className="relative h-64">
+              <Image
+                src="/placeholder.svg?height=300&width=400"
+                alt="Book your date"
+                fill
+                className="object-cover grayscale"
+              />
+              <div className="absolute inset-0 bg-black/20"></div>
+              <div className="absolute bottom-4 left-4">
+                <span className="text-white font-bold text-lg">Book Date</span>
+              </div>
+            </div>
+            <div className="relative h-64">
+              <Image
+                src="/placeholder.svg?height=300&width=400"
+                alt="Enjoy your session"
+                fill
+                className="object-cover grayscale"
+              />
+              <div className="absolute inset-0 bg-black/20"></div>
+              <div className="absolute bottom-4 left-4">
+                <span className="text-white font-bold text-lg">
+                  Enjoy Session
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Carousel Section */}
+      <section className="relative z-10 w-full h-96 overflow-hidden">
+        {/* Scrolling Images */}
+        <div className="absolute inset-0 flex">
+          <div className="flex scroll-animation">
+            {/* Duplicate the images for seamless loop */}
+            {[...galleryImages, ...galleryImages].map((image, index) => (
+              <div key={index} className="relative h-96 w-80 flex-shrink-0">
+                <Image
+                  src={image.src || "/placeholder.svg"}
+                  alt={image.alt}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Overlay with text and button */}
+        <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center">
+          <h2 className="text-4xl md:text-6xl font-bold text-white mb-8">
+            Featured Work
           </h2>
-        </div>
-      </section>
-
-      {/* Booking Section */}
-      <section className="relative z-10 py-16 px-4 md:px-8 bg-white/90 backdrop-blur-sm">
-        <div className="max-w-5xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center gap-8">
-            <div className="w-full md:w-1/3 bg-[#DDA5AF] h-48 rounded-lg flex items-center justify-center">
-              <h3 className="text-2xl font-bold text-white">Booking</h3>
-            </div>
-            <div className="w-full md:w-2/3">
-              <p className="text-gray-700 mb-4">
-                Schedule your perfect photoshoot with our easy booking system.
-                Choose your package, date, and location. We offer flexible
-                scheduling options to accommodate your busy life. Our booking
-                process is designed to be simple and stress-free, allowing you
-                to focus on preparing for your session.
-              </p>
-              <Link
-                href="/booking"
-                className="inline-flex items-center text-[#F0532B] font-bold hover:text-[#F88331]"
-              >
-                Book Now <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing Section */}
-      <section className="relative z-10 py-16 px-4 md:px-8 bg-white/90 backdrop-blur-sm">
-        <div className="max-w-5xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center gap-8">
-            <div className="w-full md:w-1/3 bg-[#F88331] h-48 rounded-lg flex items-center justify-center">
-              <h3 className="text-2xl font-bold text-white">Pricing</h3>
-            </div>
-            <div className="w-full md:w-2/3">
-              <p className="text-gray-700 mb-4">
-                Transparent pricing for all your photography needs. From
-                portraits to events, we have packages for every occasion. Our
-                pricing is designed to be clear and straightforward, with no
-                hidden fees. We offer a range of packages to suit different
-                budgets and requirements.
-              </p>
-              <Link
-                href="/pricing"
-                className="inline-flex items-center text-[#F0532B] font-bold hover:text-[#F88331]"
-              >
-                View Packages <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Gallery Section */}
-      <section className="relative z-10 py-16 px-4 md:px-8 bg-white/90 backdrop-blur-sm">
-        <div className="max-w-5xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center gap-8">
-            <div className="w-full md:w-1/3 bg-[#828BC5] h-48 rounded-lg flex items-center justify-center">
-              <h3 className="text-2xl font-bold text-white">Gallery</h3>
-            </div>
-            <div className="w-full md:w-2/3">
-              <p className="text-gray-700 mb-4">
-                Browse our portfolio of stunning photography. Get inspired and
-                see the quality of our work. Our gallery showcases a diverse
-                range of photography styles and subjects, from intimate
-                portraits to breathtaking landscapes. Each image tells a unique
-                story and captures a special moment in time.
-              </p>
-              <Link
-                href="/gallery"
-                className="inline-flex items-center text-[#F0532B] font-bold hover:text-[#F88331]"
-              >
-                Explore Gallery <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section className="relative z-10 py-16 px-4 md:px-8 bg-white/90 backdrop-blur-sm">
-        <div className="max-w-5xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center gap-8">
-            <div className="w-full md:w-1/3 bg-[#3C3883] h-48 rounded-lg flex items-center justify-center">
-              <h3 className="text-2xl font-bold text-white">Contact</h3>
-            </div>
-            <div className="w-full md:w-2/3">
-              <p className="text-gray-700 mb-4">
-                Have questions? Reach out to us. We're here to help you capture
-                your special moments. Our team is dedicated to providing
-                exceptional customer service and support. Whether you have
-                questions about our services or need assistance with booking,
-                we're just a message away.
-              </p>
-              <Link
-                href="/contact"
-                className="inline-flex items-center text-[#F0532B] font-bold hover:text-[#F88331]"
-              >
-                Get in Touch <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section className="relative z-10 py-16 px-4 md:px-8 bg-white/90 backdrop-blur-sm">
-        <div className="max-w-5xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center gap-8">
-            <div className="w-full md:w-1/3 bg-[#F0532B] h-48 rounded-lg flex items-center justify-center">
-              <h3 className="text-2xl font-bold text-white">About</h3>
-            </div>
-            <div className="w-full md:w-2/3">
-              <p className="text-gray-700 mb-4">
-                Learn about our story, our passion for photography, and the team
-                behind Mailey Studios. We are a group of dedicated professionals
-                who are passionate about capturing life's most precious moments.
-                Our journey began with a simple love for photography and has
-                evolved into a mission to help others preserve their memories.
-              </p>
-              <Link
-                href="/about"
-                className="inline-flex items-center text-[#F0532B] font-bold hover:text-[#F88331]"
-              >
-                Our Story <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </div>
-          </div>
+          <Link
+            href="/gallery"
+            className="bg-white text-black px-8 py-4 font-bold hover:bg-gray-100 transition-colors duration-300"
+          >
+            View Gallery
+          </Link>
         </div>
       </section>
     </main>

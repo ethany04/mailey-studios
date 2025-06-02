@@ -46,7 +46,7 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
+          <div className="flex justify-between h-18">
             <div className="hidden md:flex items-center justify-center flex-1">
               {navLinks.slice(0, 3).map((link) => (
                 <NavLink
@@ -61,11 +61,11 @@ export default function Navbar() {
             <div className="flex items-center justify-center md:justify-center md:flex-1">
               <Link
                 href="/"
-                className={`text-2xl font-bold transition-colors duration-300 ${
-                  scrolled ? "text-[#3C3883]" : "text-white"
+                className={`text-2xl transition-colors duration-300 ${
+                  scrolled ? "text-black" : "text-white"
                 }`}
               >
-                Mailey Studios
+                <span>Maggie Whitten Photography</span>
               </Link>
             </div>
 
@@ -85,7 +85,7 @@ export default function Navbar() {
                 type="button"
                 className={`inline-flex items-center justify-center p-2 rounded-md focus:outline-none ${
                   scrolled
-                    ? "text-gray-700 hover:text-[#3C3883] hover:bg-gray-100"
+                    ? "text-gray-700 hover:text-black hover:bg-gray-100"
                     : "text-white hover:text-white/80"
                 }`}
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -147,13 +147,13 @@ function NavLink({
       href={link.href}
       className={`px-3 py-2 mx-2 rounded-md text-sm font-medium transition-colors duration-200 ${
         pathname === link.href
-          ? "text-[#3C3883] font-bold"
+          ? "text-black font-bold"
           : scrolled
-          ? "text-gray-700 hover:text-[#3C3883]"
+          ? "text-gray-700 hover:text-black"
           : "text-white hover:text-white/80"
       }`}
     >
-      {link.name}
+      <span>{link.name}</span>
     </Link>
   );
 }

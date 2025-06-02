@@ -1,5 +1,15 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "kepler";
+  src: url("/fonts/KeplerStdLightDisp.otf");
+}
+
+@font-face {
+  font-family: "adobe";
+  src: url("/fonts/AdobeTextPro-Regular.ttf");
+}
+
 :root {
   --pink: #dda5af;
   --orange: #f88331;
@@ -10,7 +20,7 @@
 }
 
 body {
-  font-family: var(--font-dm-sans), sans-serif;
+  font-family: "kepler";
   color: #333;
   background-color: #f9f9f9;
 }
@@ -21,11 +31,28 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 700;
+  font-family: "kepler";
 }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
+span {
+  font-family: "adobe";
+}
+/* Scrolling carousel animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.scroll-animation {
+  animation: scroll 70s linear infinite;
+}
+
+.scroll-animation:hover {
+  animation-play-state: paused;
 }
 
 @layer utilities {
