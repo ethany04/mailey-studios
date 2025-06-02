@@ -3,7 +3,7 @@ import { Instagram, Twitter, Linkedin, Mail } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-gradient-to-r from-[#3c3883] to-[#828bc5] py-6 px-4 md:px-8 z-10">
+    <footer className="relative w-full bg-gradient-to-r from-[#3c3883] to-[#828bc5] py-6 px-4 md:px-8 z-50">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
         {/* Left - Copyright */}
         <div className="text-white text-sm">© 2025 Mailey Studios</div>

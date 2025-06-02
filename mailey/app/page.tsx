@@ -18,7 +18,7 @@ export default function Home() {
   ];
 
   return (
-    <main className="min-h-screen relative">
+    <main className="min-h-screen relative z-0">
       {/* Fixed Background Image */}
       <div className="fixed inset-0 z-0">
         <Image
@@ -28,7 +28,7 @@ export default function Home() {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-black/30"></div>
+        <div className="absolute inset-0 bg-black/50 z-0"></div>
       </div>
 
       {/* Hero Section */}
