@@ -22,7 +22,7 @@ export default function Home() {
       {/* Fixed Background Image */}
       <div className="fixed inset-0 z-0">
         <Image
-          src="/home_bg.jpg"
+          src="/headers/home_bg.jpg"
           alt="Home background editorial"
           fill
           priority
