@@ -61,25 +61,6 @@ export default function FAQsPage() {
 
   return (
     <main className="min-h-screen">
-      {/* Fullscreen Hero Section */}
-      <section className="relative h-screen w-full flex flex-col items-center justify-center">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/about/editorial2.jpg"
-            alt="FAQs hero image"
-            fill
-            priority
-            className="object-cover grayscale"
-          />
-          <div className="absolute inset-0 bg-black/40"></div>
-        </div>
-        <div className="relative z-10 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            Frequently Asked Questions
-          </h1>
-        </div>
-      </section>
-
       {/* Content Section */}
       <div
         className={`transition-opacity duration-500 ${

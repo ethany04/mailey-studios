@@ -33,12 +33,12 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative h-screen w-full flex flex-col items-center justify-center z-10">
-        <h1 className="text-9xl md:text-7xl font-bold text-white mb-6 tracking-wide">
-          Live in the moment
+        <h1 className="text-9xl md:text-7xl font-bold text-white mb-6 tracking-wider">
+          LIVE IN THE MOMENT
         </h1>
         <Link
           href="/booking"
-          className="bg-white text-black font-bold py-3 px-8 rounded-full transition-colors duration-300"
+          className="text-white border-2 border-white hover:bg-white hover:text-black font-bold py-3 px-8 transition-colors duration-300"
         >
           Book a Session
         </Link>
