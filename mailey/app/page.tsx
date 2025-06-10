@@ -11,10 +11,6 @@ export default function Home() {
     { src: "/about/senior2.jpg", alt: "Portfolio image 4" },
     { src: "/about/editorial2.jpg", alt: "Portfolio image 5" },
     { src: "/about/lifestyle2.jpg", alt: "Portfolio image 6" },
-    { src: "/about/lifestyle2.jpg", alt: "Portfolio image 7" },
-    { src: "/about/lifestyle2.jpg", alt: "Portfolio image 8" },
-    { src: "/about/lifestyle2.jpg", alt: "Portfolio image 9" },
-    { src: "/about/lifestyle2.jpg", alt: "Portfolio image 10" },
   ];
 
   return (
@@ -74,7 +70,7 @@ export default function Home() {
             <div className="lg:w-1/3">
               <div className="relative w-80 h-96 mx-auto">
                 <Image
-                  src="/maggie_headshot.jpeg"
+                  src="/about/maggie_headshot.jpeg"
                   alt="Maggie - Mailey Studios photographer"
                   fill
                   className="object-cover grayscale"
