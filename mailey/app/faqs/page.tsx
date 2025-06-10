@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Image from "next/image";
+import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 
 const faqs = [
@@ -48,83 +47,71 @@ const faqs = [
 ];
 
 export default function FAQsPage() {
-  const [showContent, setShowContent] = useState(false);
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
-
-  useEffect(() => {
-    setShowContent(true);
-  }, []);
 
   const toggleFAQ = (index: number) => {
     setOpenFAQ(openFAQ === index ? null : index);
   };
 
   return (
-    <main className="min-h-screen">
-      {/* Content Section */}
-      <div
-        className={`transition-opacity duration-500 ${
-          showContent ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        <section className="py-16 px-4 md:px-8 bg-white">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-center text-black mb-6">
-              Questions & Answers
-            </h2>
-            <span className="text-xl text-center text-gray-700 mb-16 max-w-3xl mx-auto block">
-              Find answers to the most common questions about our photography
-              services and booking process.
-            </span>
+    <main className="min-h-screen pt-20 bg-white">
+      <section className="py-16 px-4 md:px-8">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-6xl font-bold text-center text-black mb-6">
+            Frequently Asked Questions
+          </h1>
+          <span className="text-xl text-center text-gray-700 mb-16 max-w-3xl mx-auto block">
+            Find answers to the most common questions about our photography
+            services and booking process.
+          </span>
 
-            <div className="space-y-4">
-              {faqs.map((faq, index) => (
-                <div
-                  key={index}
-                  className="border border-gray-200 overflow-hidden"
-                >
-                  <button
-                    className="w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 transition-colors duration-200 flex justify-between items-center"
-                    onClick={() => toggleFAQ(index)}
-                  >
-                    <h3 className="text-lg font-bold text-black pr-4">
-                      {faq.question}
-                    </h3>
-                    {openFAQ === index ? (
-                      <ChevronUp className="h-5 w-5 text-gray-600 flex-shrink-0" />
-                    ) : (
-                      <ChevronDown className="h-5 w-5 text-gray-600 flex-shrink-0" />
-                    )}
-                  </button>
-                  {openFAQ === index && (
-                    <div className="px-6 py-4 bg-white">
-                      <span className="text-gray-700 leading-relaxed">
-                        {faq.answer}
-                      </span>
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-16 text-center">
-              <h3 className="text-2xl font-bold text-black mb-4">
-                Still have questions?
-              </h3>
-              <span className="text-lg text-gray-700 mb-8 block">
-                Don't hesitate to reach out! We're here to help make your
-                photography experience perfect.
-              </span>
-              <a
-                href="/contact"
-                className="inline-flex items-center bg-black text-white px-8 py-4 hover:bg-gray-800 transition-colors duration-300 text-lg font-bold"
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <div
+                key={index}
+                className="border border-gray-200 overflow-hidden"
               >
-                Contact Us
-              </a>
-            </div>
+                <button
+                  className="w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 transition-colors duration-200 flex justify-between items-center"
+                  onClick={() => toggleFAQ(index)}
+                >
+                  <h3 className="text-lg font-bold text-black pr-4">
+                    {faq.question}
+                  </h3>
+                  {openFAQ === index ? (
+                    <ChevronUp className="h-5 w-5 text-gray-600 flex-shrink-0" />
+                  ) : (
+                    <ChevronDown className="h-5 w-5 text-gray-600 flex-shrink-0" />
+                  )}
+                </button>
+                {openFAQ === index && (
+                  <div className="px-6 py-4 bg-white">
+                    <span className="text-gray-700 leading-relaxed">
+                      {faq.answer}
+                    </span>
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
-        </section>
-      </div>
+
+          <div className="mt-16 text-center">
+            <h3 className="text-2xl font-bold text-black mb-4">
+              Still have questions?
+            </h3>
+            <span className="text-lg text-gray-700 mb-8 block">
+              Don't hesitate to reach out! We're here to help make your
+              photography experience perfect.
+            </span>
+            <a
+              href="/contact"
+              className="inline-flex items-center bg-black text-white px-8 py-4 hover:bg-gray-800 transition-colors duration-300 text-lg font-bold"
+            >
+              Contact Us
+            </a>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

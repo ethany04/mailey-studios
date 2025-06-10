@@ -19,6 +19,8 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  const isFAQsPage = pathname === "/faqs";
+
   useEffect(() => {
     const handleScroll = () => {
       // Check if page is scrolled past the viewport height
@@ -26,23 +28,31 @@ export default function Navbar() {
       setScrolled(isScrolled);
     };
 
-    // Add scroll event listener
-    window.addEventListener("scroll", handleScroll);
-
-    // Initial check
-    handleScroll();
+    // Only add scroll listener if not on FAQs page
+    if (!isFAQsPage) {
+      window.addEventListener("scroll", handleScroll);
+      // Initial check
+      handleScroll();
+    }
 
     // Clean up
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      if (!isFAQsPage) {
+        window.removeEventListener("scroll", handleScroll);
+      }
     };
-  }, []);
+  }, [isFAQsPage]);
+
+  // Force scrolled style on FAQs page
+  const isScrolledStyle = isFAQsPage || scrolled;
 
   return (
     <>
       <nav
         className={`fixed w-full z-50 transition-all duration-300 ${
-          scrolled ? "bg-white/90 backdrop-blur-sm shadow-sm" : "bg-transparent"
+          isScrolledStyle
+            ? "bg-white/90 backdrop-blur-sm shadow-sm"
+            : "bg-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -53,7 +63,7 @@ export default function Navbar() {
                   key={link.name}
                   link={link}
                   pathname={pathname}
-                  scrolled={scrolled}
+                  scrolled={isScrolledStyle}
                 />
               ))}
             </div>
@@ -62,7 +72,7 @@ export default function Navbar() {
               <Link
                 href="/"
                 className={`text-2xl transition-colors duration-300 ${
-                  scrolled ? "text-black" : "text-white"
+                  isScrolledStyle ? "text-black" : "text-white"
                 }`}
               >
                 <span>Maggie Whitten Photography</span>
@@ -75,7 +85,7 @@ export default function Navbar() {
                   key={link.name}
                   link={link}
                   pathname={pathname}
-                  scrolled={scrolled}
+                  scrolled={isScrolledStyle}
                 />
               ))}
             </div>
@@ -106,7 +116,7 @@ export default function Navbar() {
           <div className="md:hidden">
             <div
               className={`px-2 pt-2 pb-3 space-y-1 sm:px-3 shadow-lg ${
-                scrolled ? "bg-white" : "bg-black/70 backdrop-blur-sm"
+                isScrolledStyle ? "bg-white" : "bg-black/70 backdrop-blur-sm"
               }`}
             >
               {navLinks.map((link) => (
@@ -116,7 +126,7 @@ export default function Navbar() {
                   className={`block px-3 py-2 rounded-md text-base font-medium ${
                     pathname === link.href
                       ? "text-[#3C3883] font-bold"
-                      : scrolled
+                      : isScrolledStyle
                       ? "text-gray-700 hover:text-[#3C3883] hover:bg-gray-50"
                       : "text-white hover:text-[#3C3883]"
                   }`}
