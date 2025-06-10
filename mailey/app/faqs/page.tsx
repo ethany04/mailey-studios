@@ -5,44 +5,44 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 
 const faqs = [
   {
-    question: "How far in advance should I book my session?",
+    question: "Can I get a refund for a retainer?",
     answer:
-      "We recommend booking your session at least 2-4 weeks in advance, especially during peak seasons like graduation and holidays. This ensures you get your preferred date and time.",
+      "No, the retainer is not refundable. In respect to my business and time, if you decide to cancel with me, I unfortunately can not give you a refund as this was a session I could have booked with another client.",
   },
   {
-    question: "What should I wear for my photoshoot?",
+    question: "Do you retouch your images?",
     answer:
-      "We provide a detailed style guide after booking that includes outfit suggestions, color palettes, and styling tips. Generally, we recommend avoiding busy patterns and choosing colors that complement your skin tone.",
+      "Yes, as part of the professionally edited photos, I will edit out anything you think is extra  or distracting within reason.",
   },
   {
-    question: "How long does a typical session last?",
+    question: "Do you offer shorter sessions?",
     answer:
-      "Session lengths vary by package. Our basic sessions are 1-1.5 hours, standard sessions are 2-2.5 hours, and premium sessions can last 3-4 hours. We'll discuss timing during your consultation.",
+      "My shortest session time is 45 minutes, this offers enough time for you to get warmed up to the camera and have a variety of poses in your photos. I will not offer discounts to shorten any of my sessions.",
   },
   {
-    question: "When will I receive my photos?",
+    question: "What do I wear for my photos?",
     answer:
-      "You can expect to receive your edited photos within 2-3 weeks after your session. We'll send you a private online gallery where you can view, download, and share your images.",
+      "After you book your session with me, I will send you my outfit guide. I love to see you express yourself in your shoot, so beyond my suggestions, wear what makes you feel most yourself/most comfortable!",
   },
   {
-    question: "Can I bring props or request specific poses?",
+    question: "I don’t know how to pose. Will you pose me at the shoot?",
     answer:
-      "We encourage you to bring meaningful props and share any pose ideas you have. We want your photos to reflect your personality and style.",
+      "Surprisingly this is a very common question. Of course I will pose you at the shoot! My job is to make you comfortable in front of the lens and provide poses that make my clients feel confident. I will always have ideas for poses that help fulfill your vision!",
   },
   {
-    question: "What happens if it rains on the day of my outdoor session?",
+    question: "Can I bring my friends and family to the shoot?",
     answer:
-      "We monitor weather closely and will contact you if conditions aren't suitable for outdoor photography. We can reschedule at no additional cost or move to an indoor location if available.",
+      "Please! I love when clients bring their loved ones to their shoot, it always makes the process so much more fun.",
   },
   {
-    question: "Do you offer payment plans?",
+    question: "How long does it take for me to receive my photos?",
     answer:
-      "Yes! We require a 20% retainer to secure your date, and the remaining balance can be paid in installments leading up to your session. Contact us to discuss payment options.",
+      "My turnaround time is 2 weeks. If you need this to be expedited, there will be an additional cost on a case-to-case basis.",
   },
   {
-    question: "Can I purchase additional photos not included in my package?",
+    question: "Do you do reschedules?",
     answer:
-      "Yes, you can purchase additional edited photos from your session. We'll provide pricing information for extra images when we deliver your gallery.",
+      "If the weather conditions are not suitable (such as rain, snow, or sleet), I will determine whether we need to reschedule. Please note that I cannot control sunlight, so cloudy skies alone will not be a valid reason to reschedule. I will notify you at least 24 hours in advance if the shoot needs to be postponed!",
   },
 ];
 
