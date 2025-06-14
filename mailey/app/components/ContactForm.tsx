@@ -24,8 +24,12 @@ import {
 
 import { z } from "zod";
 import { formSchema } from "@/lib/schemas";
+import { useState } from "react";
+import Confetti from "react-confetti";
 
 export default function ContactForm() {
+  const [isSubmitted, setSubmitted] = useState(false);
+
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -57,11 +61,17 @@ export default function ContactForm() {
 
       const result = await response.json();
       console.log("Email sent successfully:", result);
+      setSubmitted(true);
     } catch (error) {
       console.error("An error occurred:", error);
     }
   }
-  return (
+  return isSubmitted ? (
+    <div>
+      <h1 className="text-center text-3xl">Success!</h1>
+      <Confetti />
+    </div>
+  ) : (
     <Card className="mx-auto max-w-md">
       <CardHeader>
         <CardTitle>Contact Us</CardTitle>
