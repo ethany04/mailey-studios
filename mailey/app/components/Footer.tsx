@@ -11,15 +11,16 @@ export default function Footer() {
         {/* Center - Social Icons */}
         <div className="flex items-center space-x-6">
           <Link
-            href="https://instagram.com"
+            href="https://instagram.com/mailey.studios"
             className="text-black hover:text-black/80 transition-colors duration-300"
             aria-label="Instagram"
+            target="_blank"
           >
             <Instagram size={20} />
           </Link>
 
           <Link
-            href="mailto:hello@maileystudios.com"
+            href="mailto:maileystudios@gmail.com"
             className="text-black hover:text-black/80 transition-colors duration-300"
             aria-label="Email"
           >

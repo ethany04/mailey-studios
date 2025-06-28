@@ -34,8 +34,8 @@ export default function BookingPage() {
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
         <div className="relative z-10 text-center">
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-            Booking and Pricing
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-wider">
+            BOOKING & PRICING
           </h1>
           <ChevronDown className="h-8 w-8 text-white mx-auto animate-bounce" />
         </div>
