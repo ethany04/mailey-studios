@@ -1,18 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import PhotoCarousel from "./components/PhotoCarousel";
 
 export default function Home() {
-  // Sample gallery images for the carousel
-  const galleryImages = [
-    { src: "/about/senior1.jpg", alt: "Portfolio image 1" },
-    { src: "/about/editorial1.jpg", alt: "Portfolio image 2" },
-    { src: "/about/lifestyle1.jpg", alt: "Portfolio image 3" },
-    { src: "/about/senior2.jpg", alt: "Portfolio image 4" },
-    { src: "/about/editorial2.jpg", alt: "Portfolio image 5" },
-    { src: "/about/lifestyle2.jpg", alt: "Portfolio image 6" },
-  ];
-
   return (
     <main className="min-h-screen relative z-0">
       {/* Fixed Background Image */}
@@ -147,26 +138,10 @@ export default function Home() {
       </section>
 
       {/* Gallery Carousel Section */}
-      <section className="relative z-10 w-full h-96 overflow-hidden">
-        {/* Scrolling Images */}
-        <div className="absolute inset-0 flex">
-          <div className="flex scroll-animation">
-            {/* Duplicate the images for seamless loop */}
-            {[...galleryImages, ...galleryImages].map((image, index) => (
-              <div key={index} className="relative h-96 w-80 flex-shrink-0">
-                <Image
-                  src={image.src || "/placeholder.svg"}
-                  alt={image.alt}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-
+      <section className="relative w-full h-96 overflow-hidden">
+        <PhotoCarousel />
         {/* Overlay with text and button */}
-        <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center">
+        <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center z-15">
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-8">
             Featured Work
           </h2>
