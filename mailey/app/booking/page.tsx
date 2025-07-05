@@ -5,38 +5,21 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 import { Timeline } from "../components/Timeline";
+import PhotoCarousel from "../components/PhotoCarousel";
 
 export default function BookingPage() {
   const [showContent, setShowContent] = useState(false);
   const timelineData = [
     {
-      title: "2025",
+      title: "01",
       content: (
         <div className="space-y-2">
-          <p className="font-medium">
-            Research Analyst at UT Southwestern Medical Center
-          </p>
-          <p className="text-sm text-neutral-400">
-            Deploying Zero-Shot Multimodal OSCE exam scorer with LLMs for audio
-            + video inputs
-          </p>
-          <p className="font-medium mt-4">
-            Research Analyst at University of Texas at Austin
-          </p>
-          <p className="text-sm text-neutral-400">Apr 2025 - Present</p>
-          <p className="text-sm text-neutral-400">
-            Worked with Dr. Justin Hart in Autonomous Robots Lab, focusing on
-            reinforcement learning and computer vision algorithms
-          </p>
-          <p className="text-sm text-neutral-400">
-            Developing AI/ML models to improve human-robot interaction, scene
-            understanding, and decision-making
-          </p>
+          <p className="font-medium">Choose Your Session Type! </p>
         </div>
       ),
     },
     {
-      title: "2024",
+      title: "02",
       content: (
         <div className="space-y-2">
           <p className="font-medium">Equity Research Intern at Almondz</p>
@@ -99,52 +82,44 @@ export default function BookingPage() {
       ),
     },
     {
-      title: "2023",
+      title: "03",
       content: (
         <div className="space-y-2">
-          <p className="font-medium">Research Analyst at UT Dallas</p>
+          <p className="font-medium">Book Online!</p>
           <p className="text-sm text-neutral-400">
-            Led sentiment analysis project on stock news and online forums
-          </p>
-          <p className="font-medium mt-4">
-            Investment Analyst Intern at NXG Investment Management
-          </p>
-          <p className="text-sm text-neutral-400">
-            Collaborated on investment strategies for clients in the Electric
-            Vehicle industry
-          </p>
-          <p className="font-medium mt-4">President and Founder of Enrichify</p>
-          <p className="text-sm text-neutral-400">
-            Created a financial platform with 1,200+ users and 200,000+ media
-            impressions
-          </p>
-          <p className="text-sm text-neutral-400">
-            Secured $7,500 in grants and donations
-          </p>
-          <p className="font-medium mt-4">
-            Quantitative Analyst Intern at hScore
-          </p>
-          <p className="text-sm text-neutral-400">
-            Reduced sentiment analysis processing time by hours through code
-            refactoring and algorithm optimization
+            Secure a date on my booking site
           </p>
         </div>
       ),
     },
     {
-      title: "Education",
+      title: "04",
       content: (
         <div className="space-y-2">
-          <p className="font-medium">The University of Texas at Austin</p>
+          <p className="font-medium">Pay Retainer</p>
           <p className="text-sm text-neutral-400">
-            B.Sc. in Computer Science & B.Sc. in Applied Math
-          </p>
-          <p className="font-medium mt-4">Carroll High School</p>
-          <p className="text-sm text-neutral-400">
-            GPA 105.0/100 | Rank 27/721
+            To secure your day, you will pay a 20% retainer on the day you book
+            or within 24 hours of receiving confirmation
           </p>
         </div>
       ),
+    },
+    {
+      title: "05",
+      content: (
+        <div className="space-y-2">
+          <p className="font-medium">Decide on Outfit(s) and location(s)</p>
+          <p className="text-sm text-neutral-400">
+            After you have booked, and paid your retainer, you will fill out my
+            After-booking form. In it, I have curated guides for you to choose
+            your perfect outfits and locations!
+          </p>
+        </div>
+      ),
+    },
+    {
+      title: "Go to Shoot Day and Celebrate!",
+      content: <div className="space-y-2"></div>,
     },
   ];
 
@@ -194,7 +169,7 @@ export default function BookingPage() {
                     src="/booking/senior_shoots.jpg"
                     alt="High School Senior Photography"
                     fill
-                    className="object-cover grayscale"
+                    className="object-cover"
                   />
                 </div>
               </div>
@@ -247,7 +222,7 @@ export default function BookingPage() {
                     src="/booking/editorial_shoots.jpg"
                     alt="Editorial Photography"
                     fill
-                    className="object-cover grayscale"
+                    className="object-cover"
                   />
                 </div>
               </div>
@@ -300,11 +275,11 @@ export default function BookingPage() {
                     src="/booking/lifestyle_shoots.jpg"
                     alt="Lifestyle Photography"
                     fill
-                    className="object-cover grayscale"
+                    className="object-cover"
                   />
                 </div>
               </div>
-              <div className="lg:w-1/2 text-center lg:text-left">
+              <div className="lg:w-1/2 text-center">
                 <h3 className="text-3xl md:text-4xl font-bold text-black mb-8 tracking-wider">
                   LIFESTYLE
                 </h3>
@@ -356,6 +331,7 @@ export default function BookingPage() {
           </div>
         </div>
       </section>
+      <PhotoCarousel />
     </main>
   );
 }

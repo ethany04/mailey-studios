@@ -20,7 +20,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative h-screen w-full flex flex-col items-center justify-center z-10">
-        <h1 className="text-9xl md:text-7xl font-bold text-white mb-6 tracking-wider">
+        <h1 className="text-9xl md:text-7xl text-white mb-6 tracking-wider">
           LIVE IN THE MOMENT
         </h1>
         <Link
