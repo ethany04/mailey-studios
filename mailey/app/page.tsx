@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, HelpCircle, MessageCircle } from "lucide-react";
 import PhotoCarousel from "./components/PhotoCarousel";
 
 export default function Home() {
@@ -20,7 +20,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative h-screen w-full flex flex-col items-center justify-center z-10">
-        <h1 className="text-9xl md:text-7xl text-white mb-6 tracking-wider">
+        <h1 className="text-9xl md:text-7xl sm:text-xl text-white mb-6 tracking-wider">
           LIVE IN THE MOMENT
         </h1>
         <Link
@@ -151,6 +151,94 @@ export default function Home() {
           >
             View Gallery
           </Link>
+        </div>
+      </section>
+
+      {/* Inquiry Section */}
+      <section className="relative z-10 w-full bg-white py-20">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            <div className="lg:w-1/2">
+              <div className="relative h-96 w-full">
+                <Image
+                  src="/booking/editorial_shoots.jpg"
+                  alt="Contact and inquiry"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-black/20"></div>
+              </div>
+            </div>
+            <div className="lg:w-1/2 text-center lg:text-left">
+              <div className="flex items-center justify-center lg:justify-start mb-6">
+                <MessageCircle className="h-12 w-12 text-black mr-4" />
+                <h2 className="text-4xl md:text-6xl font-bold text-black">
+                  Let's Connect
+                </h2>
+              </div>
+              <div className="space-y-6 text-lg md:text-xl text-gray-700 mb-8">
+                <span className="block">
+                  Have a unique vision or special request? We'd love to hear
+                  about your photography needs and create something beautiful
+                  together.
+                </span>
+                <span className="block">
+                  Whether it's a custom session, collaboration, or you just want
+                  to say hello – reach out and let's start the conversation.
+                </span>
+              </div>
+              <Link
+                href="/contact"
+                className="inline-flex items-center bg-black text-white px-8 py-4 font-bold hover:bg-gray-800 transition-colors duration-300"
+              >
+                Send Inquiry <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="relative z-10 w-full bg-gray-100 py-20">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+          <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
+            <div className="lg:w-1/2">
+              <div className="relative h-96 w-full">
+                <Image
+                  src="/booking/senior_shoots.jpg"
+                  alt="Frequently asked questions"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-black/20"></div>
+              </div>
+            </div>
+            <div className="lg:w-1/2 text-center lg:text-left">
+              <div className="flex items-center justify-center lg:justify-start mb-6">
+                <HelpCircle className="h-12 w-12 text-black mr-4" />
+                <h2 className="text-4xl md:text-6xl font-bold text-black">
+                  Questions?
+                </h2>
+              </div>
+              <div className="space-y-6 text-lg md:text-xl text-gray-700 mb-8">
+                <span className="block">
+                  Wondering about our process, pricing, or what to expect? We've
+                  compiled answers to the most common questions to help you
+                  prepare.
+                </span>
+                <span className="block">
+                  From session details to booking requirements, find everything
+                  you need to know before your shoot.
+                </span>
+              </div>
+              <Link
+                href="/faqs"
+                className="inline-flex items-center bg-black text-white px-8 py-4 font-bold hover:bg-gray-800 transition-colors duration-300"
+              >
+                View FAQs <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
     </main>
