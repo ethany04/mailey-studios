@@ -9,7 +9,10 @@ const navLinks = [
   { name: "Home", href: "/" },
   { name: "Booking", href: "/booking" },
   { name: "Contact", href: "/contact" },
-  { name: "Gallery", href: "/gallery" },
+  {
+    name: "Gallery",
+    href: "https://maileystudios.pixieset.com/portfoliophotos/",
+  },
   { name: "About", href: "/about" },
   { name: "FAQs", href: "/faqs" },
 ];
@@ -127,8 +130,8 @@ export default function Navbar() {
                     pathname === link.href
                       ? "text-[#3C3883] font-bold"
                       : isScrolledStyle
-                      ? "text-gray-700 hover:text-[#3C3883] hover:bg-gray-50"
-                      : "text-white hover:text-[#3C3883]"
+                        ? "text-gray-700 hover:text-[#3C3883] hover:bg-gray-50"
+                        : "text-white hover:text-[#3C3883]"
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -159,8 +162,8 @@ function NavLink({
         pathname === link.href
           ? "text-black font-bold"
           : scrolled
-          ? "text-gray-700 hover:text-black"
-          : "text-white hover:text-white/80"
+            ? "text-gray-700 hover:text-black"
+            : "text-white hover:text-white/80"
       }`}
     >
       <span>{link.name}</span>

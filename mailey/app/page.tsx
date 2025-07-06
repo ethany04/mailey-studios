@@ -23,6 +23,7 @@ export default function Home() {
         <h1 className="text-9xl md:text-7xl sm:text-xl text-white mb-6 tracking-wider">
           LIVE IN THE MOMENT
         </h1>
+
         <Link
           href="/booking"
           className="text-white border-2 border-white hover:bg-white hover:text-black font-bold py-3 px-8 transition-colors duration-300"
@@ -73,7 +74,7 @@ export default function Home() {
       </section>
 
       {/* Booking Process Section */}
-      <section className="relative z-10 w-full bg-gray-100 py-20">
+      <section className="relative z-10 w-full bg-white py-20">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl font-bold text-black mb-8">
@@ -161,7 +162,7 @@ export default function Home() {
             <div className="lg:w-1/2">
               <div className="relative h-96 w-full">
                 <Image
-                  src="/booking/editorial_shoots.jpg"
+                  src="/homepage/group1.jpg"
                   alt="Contact and inquiry"
                   fill
                   className="object-cover"
@@ -171,7 +172,6 @@ export default function Home() {
             </div>
             <div className="lg:w-1/2 text-center lg:text-left">
               <div className="flex items-center justify-center lg:justify-start mb-6">
-                <MessageCircle className="h-12 w-12 text-black mr-4" />
                 <h2 className="text-4xl md:text-6xl font-bold text-black">
                   Let's Connect
                 </h2>
@@ -199,13 +199,13 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section className="relative z-10 w-full bg-gray-100 py-20">
+      <section className="relative z-10 w-full bg-white py-20">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
             <div className="lg:w-1/2">
               <div className="relative h-96 w-full">
                 <Image
-                  src="/booking/senior_shoots.jpg"
+                  src="/homepage/faqs1.jpg"
                   alt="Frequently asked questions"
                   fill
                   className="object-cover"
@@ -215,7 +215,6 @@ export default function Home() {
             </div>
             <div className="lg:w-1/2 text-center lg:text-left">
               <div className="flex items-center justify-center lg:justify-start mb-6">
-                <HelpCircle className="h-12 w-12 text-black mr-4" />
                 <h2 className="text-4xl md:text-6xl font-bold text-black">
                   Questions?
                 </h2>

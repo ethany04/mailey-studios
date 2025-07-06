@@ -22,61 +22,17 @@ export default function BookingPage() {
       title: "02",
       content: (
         <div className="space-y-2">
-          <p className="font-medium">Equity Research Intern at Almondz</p>
-          <p className="text-sm text-neutral-400">
-            Allocated 1 Billion INR of revenue to equities and other assets via
-            financial analysis, DCF & EV/EBITDA methods
+          <p>
+            If you're a grad, choose{" "}
+            <a href="/packages" className="text-black underline">
+              package
+            </a>
           </p>
-          <p className="text-sm text-neutral-400">
-            Assisted in giving recommendations on companies across sectors by
-            attending conference calls & assessing quarterly results
-          </p>
-          <p className="font-medium mt-4">
-            Research Associate at Texas Christian University
-          </p>
-          <p className="text-sm text-neutral-400">
-            Developing ODE models to analyze viral load data
-          </p>
-          <p className="text-sm text-neutral-400">
-            Publication: "Analyzing Dynamical Differences Between Vaccinated and
-            Unvaccinated RSV Patients"
-          </p>
-          <p className="font-medium mt-4">
-            Private Equity Intern at Newshore Partners
-          </p>
-          <p className="text-sm text-neutral-400">
-            Led 2 closed investments deal, conducting DCF, LBO, and comparables
-            analysis
-          </p>
-          <p className="font-medium mt-4">Director of Operations at Fidutam</p>
-          <p className="text-sm text-neutral-400">
-            United Nations ECOSOC Youth Forum Invitee
-          </p>
-          <p className="text-sm text-neutral-400">
-            United Nations AI for Good Ambassador
-          </p>
-          <p className="text-sm text-neutral-400">MIT Solve Finalist</p>
-          <p className="font-medium mt-4">Strategic Solutions Intern at Onix</p>
-          <p className="text-sm text-neutral-400">
-            Enhanced AI security protocols by deploying data-driven solutions,
-            improving anomaly detection accuracy by 15%
-          </p>
-          <p className="text-sm text-neutral-400">
-            Engineered and delivered scalable software solutions and interactive
-            demos using Python and TensorFlow
-          </p>
-          <p className="text-sm text-neutral-400">
-            Led the migration of 50+ Cloudera Jupyter Notebooks to Google Vertex
-            AI, optimizing deployment pipelines
-          </p>
-          <p className="font-medium mt-4">Jr. Quantitative Analyst at hScore</p>
-          <p className="text-sm text-neutral-400">
-            $20,000,000+ pledged AUM to team-built High-Frequency Trading (HFT)
-            software, with 35% Alpha opposed to S&P's 10%
-          </p>
-          <p className="text-sm text-neutral-400">
-            Achieved 95% accuracy in sentiment analysis of 500+ earnings
-            transcripts with TextBlob, NLTK, and bidirectional encoding
+          <p>
+            All other session types, please{" "}
+            <a href="/contact" className="text-black underline">
+              Inquire
+            </a>
           </p>
         </div>
       ),
@@ -137,7 +93,7 @@ export default function BookingPage() {
             alt="Booking and pricing hero image"
             fill
             priority
-            className="object-cover grayscale"
+            className="object-cover"
           />
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
@@ -156,7 +112,7 @@ export default function BookingPage() {
       {/* Pricing Section */}
       <section id="pricing" className="py-20 px-4 md:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center text-black mb-16">
+          <h2 className="text-6xl  font-bold text-center text-black mb-16">
             Pricing
           </h2>
 
@@ -267,7 +223,7 @@ export default function BookingPage() {
           </div>
 
           {/* Lifestyle Photography */}
-          <div className="mb-20">
+          <div className="mb-50">
             <div className="flex flex-col lg:flex-row gap-12 items-center">
               <div className="lg:w-1/2">
                 <div className="relative aspect-[3/4] w-full max-w-md mx-auto">
@@ -320,6 +276,7 @@ export default function BookingPage() {
           </div>
 
           {/* CTA Section */}
+          {/*
           <div className="text-center">
             <Link
               href="https://booking.maileystudios.com"
@@ -329,6 +286,7 @@ export default function BookingPage() {
               Book Your Session Now
             </Link>
           </div>
+          */}
         </div>
       </section>
       <PhotoCarousel />
