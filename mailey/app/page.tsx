@@ -1,20 +1,52 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, HelpCircle, MessageCircle } from "lucide-react";
 import PhotoCarousel from "./components/PhotoCarousel";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Background images array
+  const backgroundImages = [
+    "/headers/home_bg.jpg",
+    "/headers/booking_bg.jpg",
+    "/headers/gallery_bg.jpg",
+  ];
+
+  useEffect(() => {
+    // Set up image rotation
+    const imageInterval = setInterval(() => {
+      setCurrentImageIndex(
+        (prevIndex) => (prevIndex + 1) % backgroundImages.length
+      );
+    }, 5000); // Change image every 5 seconds
+
+    return () => clearInterval(imageInterval);
+  }, [backgroundImages.length]);
+
   return (
     <main className="min-h-screen relative z-0">
-      {/* Fixed Background Image */}
+      {/* Fixed Background Images with Rotation */}
       <div className="fixed inset-0 z-0">
-        <Image
-          src="/headers/home_bg.jpg"
-          alt="Home background editorial"
-          fill
-          priority
-          className="object-cover"
-        />
+        {backgroundImages.map((image, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ${
+              index === currentImageIndex ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <Image
+              src={image || "/placeholder.svg"}
+              alt={`Home background ${index + 1}`}
+              fill
+              priority={index === 0} // Only prioritize the first image
+              className="object-cover"
+            />
+          </div>
+        ))}
         <div className="absolute inset-0 bg-black/50 z-0"></div>
       </div>
 
@@ -30,47 +62,6 @@ export default function Home() {
         >
           Book a Session
         </Link>
-      </section>
-
-      {/* Meet the Photographer Section */}
-      <section className="relative z-10 w-full bg-white py-20">
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="flex flex-col lg:flex-row items-center gap-12">
-            <div className="lg:w-2/3">
-              <h2 className="text-4xl md:text-6xl font-bold text-black mb-8">
-                Hi, I'm Maggie
-              </h2>
-              <div className="space-y-6 text-lg md:text-xl text-gray-700">
-                <span className="block">
-                  I'm your photographer for Mailey Studios! I want to capture
-                  all of your memories–not only to celebrate your achievements,
-                  and special moments, but to remind you to really savor and
-                  live in the moment.
-                </span>
-                <span className="block">
-                  We want to celebrate you, your achievements, milestones, and
-                  memories—big or small, and we hope that our photography speaks
-                  to you like it has in our lives!
-                </span>
-                <span className="block">
-                  Through photography, we found excitement in exploring
-                  different locations and hoping it would bring our clients the
-                  same joy it brought us.
-                </span>
-              </div>
-            </div>
-            <div className="lg:w-1/3">
-              <div className="relative w-80 h-96 mx-auto">
-                <Image
-                  src="/about/maggie_headshot.jpeg"
-                  alt="Maggie - Mailey Studios photographer"
-                  fill
-                  className="object-cover grayscale"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
       </section>
 
       {/* Booking Process Section */}
@@ -155,6 +146,47 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Meet the Photographer Section */}
+      <section className="relative z-10 w-full bg-white py-20">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            <div className="lg:w-2/3">
+              <h2 className="text-4xl md:text-6xl font-bold text-black mb-8">
+                Hi, I'm Maggie
+              </h2>
+              <div className="space-y-6 text-lg md:text-xl text-gray-700">
+                <span className="block">
+                  I'm your photographer for Mailey Studios! I want to capture
+                  all of your memories–not only to celebrate your achievements,
+                  and special moments, but to remind you to really savor and
+                  live in the moment.
+                </span>
+                <span className="block">
+                  We want to celebrate you, your achievements, milestones, and
+                  memories—big or small, and we hope that our photography speaks
+                  to you like it has in our lives!
+                </span>
+                <span className="block">
+                  Through photography, we found excitement in exploring
+                  different locations and hoping it would bring our clients the
+                  same joy it brought us.
+                </span>
+              </div>
+            </div>
+            <div className="lg:w-1/3">
+              <div className="relative w-80 h-96 mx-auto">
+                <Image
+                  src="/about/maggie_headshot.jpeg"
+                  alt="Maggie - Mailey Studios photographer"
+                  fill
+                  className="object-cover grayscale"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Inquiry Section */}
       <section className="relative z-10 w-full bg-white py-20">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
@@ -178,13 +210,10 @@ export default function Home() {
               </div>
               <div className="space-y-6 text-lg md:text-xl text-gray-700 mb-8">
                 <span className="block">
-                  Have a unique vision or special request? We'd love to hear
-                  about your photography needs and create something beautiful
-                  together.
-                </span>
-                <span className="block">
-                  Whether it's a custom session, collaboration, or you just want
-                  to say hello – reach out and let's start the conversation.
+                  Hey! Looking to book or have questions? Whether you want to
+                  find out more about my process or need to inquire for an
+                  editorial or special occasion shoot, send me an email! I'd
+                  love to get to know your vision!
                 </span>
               </div>
               <Link
@@ -216,25 +245,24 @@ export default function Home() {
             <div className="lg:w-1/2 text-center lg:text-left">
               <div className="flex items-center justify-center lg:justify-start mb-6">
                 <h2 className="text-4xl md:text-6xl font-bold text-black">
-                  Questions?
+                  Have Questions?
                 </h2>
               </div>
               <div className="space-y-6 text-lg md:text-xl text-gray-700 mb-8">
                 <span className="block">
-                  Wondering about our process, pricing, or what to expect? We've
-                  compiled answers to the most common questions to help you
-                  prepare.
+                  Refer to our frequently asked questions page for more
+                  information about rescheduling, styling, turnaround time,
+                  session durations, and more!
                 </span>
                 <span className="block">
-                  From session details to booking requirements, find everything
-                  you need to know before your shoot.
+                  Still need more information? Inquire with me!
                 </span>
               </div>
               <Link
                 href="/faqs"
                 className="inline-flex items-center bg-black text-white px-8 py-4 font-bold hover:bg-gray-800 transition-colors duration-300"
               >
-                View FAQs <ArrowRight className="ml-2 h-5 w-5" />
+                FAQs <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </div>
           </div>
