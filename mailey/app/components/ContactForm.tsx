@@ -68,17 +68,19 @@ export default function ContactForm() {
   }
   return isSubmitted ? (
     <div>
-      <h1 className="text-center text-3xl">Success!</h1>
+      <h1 className="text-center text-3xl">
+        Thank you! We'll get back to you as soon as possible
+      </h1>
       <Confetti />
     </div>
   ) : (
-    <Card className="mx-auto max-w-md">
-      <CardHeader>
-        <CardTitle>Contact Us</CardTitle>
-        <CardDescription>
-          Fill out the form below and we'll get back to you as soon as possible.
-        </CardDescription>
-      </CardHeader>
+    <div className="mx-auto max-w-md justify-center">
+      <div className="flex justify-center align-middle">
+        <h1 className="text-bold text-4xl pb-10">
+          Fill out your information below
+        </h1>
+      </div>
+
       <CardContent>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
@@ -175,6 +177,6 @@ export default function ContactForm() {
           </form>
         </Form>
       </CardContent>
-    </Card>
+    </div>
   );
 }

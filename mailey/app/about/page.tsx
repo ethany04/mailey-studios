@@ -1,319 +1,236 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import {
-  ChevronLeft,
-  ChevronRight,
-  Instagram,
-  Facebook,
-  Twitter,
-  Mail,
-  Book,
-  MapPin,
-  Camera,
-} from "lucide-react";
-
-// Define image sets for each category
-const seniorImages = [
-  { src: "/about/senior1.jpg", alt: "Senior shoot 1" },
-  { src: "/about/senior2.jpg", alt: "Senior shoot 2" },
-];
-
-const editorialImages = [
-  { src: "/about/editorial1.jpg", alt: "Editorial 1" },
-  { src: "/about/editorial2.jpg", alt: "Editorial 2" },
-];
-
-const lifestyleImages = [
-  { src: "/about/lifestyle1.jpg", alt: "Lifestyle 1" },
-  { src: "/about/lifestyle2.jpg", alt: "Lifestyle 2" },
-];
+import { Camera, Music, GraduationCap, Guitar } from "lucide-react";
 
 export default function AboutPage() {
-  // State for tracking current image index for each category
-  const [seniorIndex, setSeniorIndex] = useState(0);
-  const [editorialIndex, setEditorialIndex] = useState(0);
-  const [lifestyleIndex, setLifestyleIndex] = useState(0);
+  const [showContent, setShowContent] = useState(false);
 
-  // State for fade transitions
-  const [seniorFading, setSeniorFading] = useState(false);
-  const [editorialFading, setEditorialFading] = useState(false);
-  const [lifestyleFading, setLifestyleFading] = useState(false);
-
-  // Auto-rotate images every 5 seconds with fade effect
   useEffect(() => {
-    const interval = setInterval(() => {
-      // Start fade out
-      setSeniorFading(true);
-      setEditorialFading(true);
-      setLifestyleFading(true);
-
-      // After fade out completes, change images and fade in
-      setTimeout(() => {
-        setSeniorIndex((prev) => (prev + 1) % seniorImages.length);
-        setEditorialIndex((prev) => (prev + 1) % editorialImages.length);
-        setLifestyleIndex((prev) => (prev + 1) % lifestyleImages.length);
-
-        // Start fade in
-        setSeniorFading(false);
-        setEditorialFading(false);
-        setLifestyleFading(false);
-      }, 500); // Half second for fade out
-    }, 5000);
-
-    return () => clearInterval(interval);
+    setShowContent(true);
   }, []);
 
   return (
-    <main className="min-h-screen bg-[#BAC3FF]">
-      {/* Hero Section with Headshot */}
-      <section className="py-20 px-4 md:px-8">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col lg:flex-row items-center gap-12">
-            <div className="lg:w-1/2">
-              <div className="relative w-80 h-80 mx-auto">
-                <Image
-                  src="/maggie_headshot.jpeg"
-                  alt="Mailey Studios photographer headshot"
-                  fill
-                  className="object-cover rounded-full shadow-2xl"
-                />
-                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#DDA5AF]/20 to-[#3C3883]/20"></div>
-              </div>
-            </div>
-            <div className="lg:w-1/2 text-center lg:text-left">
-              <h1 className="text-4xl md:text-5xl font-bold text-[#3C3883] mb-6">
-                Hi! I'm Maggie!
-              </h1>
-              <p className="text-lg text-gray-700 leading-relaxed mb-8">
-                I'm your photographer for Mailey (may-lee) Studios!
-              </p>
-              <p className="text-lg text-gray-700 leading-relaxed mb-8">
-                Read more about us below!
-              </p>
-              <div className="flex justify-center lg:justify-start space-x-6">
-                <Link
-                  href="https://www.instagram.com/mailey.studios/"
-                  className="text-[#828BC5] hover:text-[#F0532B] transition-colors duration-300"
-                >
-                  <Instagram size={24} />
-                </Link>
-                <Link
-                  href="https://twitter.com"
-                  className="text-[#828BC5] hover:text-[#F0532B] transition-colors duration-300"
-                >
-                  <Twitter size={24} />
-                </Link>
-                <Link
-                  href="mailto:hello@maileystudios.com"
-                  className="text-[#828BC5] hover:text-[#F0532B] transition-colors duration-300"
-                >
-                  <Mail size={24} />
-                </Link>
-              </div>
-            </div>
-          </div>
+    <main className="min-h-screen">
+      {/* Fixed Background Hero Section */}
+      <div className="fixed inset-0 z-0">
+        <Image
+          src="/headers/g1.jpg"
+          alt="About page hero image"
+          fill
+          priority
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black/40"></div>
+      </div>
+
+      {/* Hero Section */}
+      <section className="relative h-screen w-full flex flex-col items-center justify-center z-10">
+        <div className="relative z-10 text-center">
+          <h1 className="text-5xl md:text-7xl text-white mb-6 tracking-wider">
+            ABOUT
+          </h1>
         </div>
       </section>
 
-      {/* Our Story Section */}
-      <section className="py-16 px-4 md:px-8 bg-[#CAD1FF]">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col lg:flex-row items-center gap-12">
-            <div className="lg:w-1/3 text-center lg:text-left">
-              <div className="flex items-center justify-center lg:justify-start mb-6">
-                <div className="w-20 h-20 bg-[#DDA5AF] rounded-full flex items-center justify-center mr-4">
-                  <Book size={32} className="text-white" />
-                </div>
-                <h3 className="text-3xl font-bold text-[#3C3883]">Our Story</h3>
-              </div>
-              <p className="text-gray-700 leading-relaxed">
-                I want to capture all of your memories–not only to celebrate
-                your achievements, and special moments, but to remind you to
-                really savor and live in the moment. We want to celebrate you,
-                your achievements, milestones, and memories—big or small, and we
-                hope that our photography speaks to you like it has in our
-                lives!
-              </p>
-            </div>
-            <div className="lg:w-2/3">
-              <div className="relative h-64 rounded-lg overflow-hidden shadow-lg">
-                <Image
-                  src="/about/cstat.jpg"
-                  alt="CSTAT"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#DDA5AF]/20 to-transparent"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* My Journey Section */}
-      <section className="py-16 px-4 md:px-8">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
-            <div className="lg:w-1/3 text-center lg:text-left">
-              <div className="flex items-center justify-center lg:justify-start mb-6">
-                <div className="w-20 h-20 bg-[#F88331] rounded-full flex items-center justify-center mr-4">
-                  <MapPin size={32} className="text-white" />
-                </div>
-                <h3 className="text-3xl font-bold text-[#3C3883]">
-                  My Journey
-                </h3>
-              </div>
-              <p className="text-gray-700 leading-relaxed">
-                I got into photography in seventh grade, but I started my
-                business with one of my best friends, Ally Duan in April of
-                2024. We began our photography journey as "A&M Photography" in
-                2019 as a way to pursue two of our passions: creativity and
-                service. Long before we considered starting a business, we had a
-                desire to create. Through photography, we found excitement in
-                exploring different locations and hoping it would bring our
-                clients the same joy it brought us.
-              </p>
-            </div>
-            <div className="lg:w-2/3">
-              <div className="relative h-64 rounded-lg overflow-hidden shadow-lg">
-                <Image
-                  src="/about/camera.jpg"
-                  alt="Camera"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-l from-[#F88331]/20 to-transparent"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Beyond the Lens Section */}
-      <section className="py-16 px-4 md:px-8 bg-[#CAD1FF]">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col lg:flex-row items-center gap-12">
-            <div className="lg:w-1/3 text-center lg:text-left">
-              <div className="flex items-center justify-center lg:justify-start mb-6">
-                <div className="w-20 h-20 bg-[#828BC5] rounded-full flex items-center justify-center mr-4">
-                  <Camera size={32} className="text-white" />
-                </div>
-                <h3 className="text-3xl font-bold text-[#3C3883]">
-                  Beyond the Lens
-                </h3>
-              </div>
-              <p className="text-gray-700 leading-relaxed">
-                I am a full time student at the University of Michigan, and in
-                my free time I enjoy being a part of the boxing club, art, and
-                doing shoots with magazines on campus. Through these magazines,
-                I have been able to shoot more editorial images that are
-                personal to me! I am so passionate about photography and
-                pursuing it on many fronts.
-              </p>
-            </div>
-            <div className="lg:w-2/3">
-              <div className="relative h-64 rounded-lg overflow-hidden shadow-lg">
-                <Image
-                  src="/about/boxing.jpg"
-                  alt="Boxing"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#828BC5]/20 to-transparent"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Three-Column Portfolio Section */}
-      <section className="py-20 px-4 md:px-8 ">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-[#3C3883] mb-12">
-            Recent Work
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Seniors Column */}
-            <div className="flex flex-col items-center">
-              <h3 className="text-2xl font-bold text-[#3C3883] mb-4 uppercase tracking-wider">
-                Seniors
-              </h3>
-              <Link href="/gallery" className="block w-full">
-                <div className="relative aspect-[3/4] w-full cursor-pointer group rounded-lg overflow-hidden border-4 border-[#3C3883]">
+      {/* Content Section */}
+      <div
+        className={`relative z-10 transition-opacity duration-500 ${showContent ? "opacity-100" : "opacity-0"}`}
+      >
+        {/* Introduction Section */}
+        <section className="py-20 px-4 md:px-8 bg-white">
+          <div className="max-w-6xl mx-auto">
+            <div className="flex flex-col lg:flex-row items-center gap-16">
+              <div className="lg:w-1/2">
+                <div className="relative w-96 h-[500px] mx-auto">
                   <Image
-                    src={seniorImages[seniorIndex].src || "/placeholder.svg"}
-                    alt={seniorImages[seniorIndex].alt}
+                    src="/about/headshot1.jpg"
+                    alt="Maggie - Mailey Studios photographer"
                     fill
-                    className={`object-cover transition-all duration-500 group-hover:scale-105 ${
-                      seniorFading ? "opacity-0" : "opacity-100"
-                    }`}
-                    style={{
-                      transition:
-                        "opacity 500ms ease-in-out, transform 500ms ease-in-out",
-                    }}
+                    className="object-cover shadow-2xl"
                   />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 flex items-center justify-center"></div>
                 </div>
-              </Link>
-            </div>
-
-            {/* Editorials Column */}
-            <div className="flex flex-col items-center">
-              <h3 className="text-2xl font-bold text-[#3C3883] mb-4 uppercase tracking-wider">
-                Editorials
-              </h3>
-              <Link href="/gallery" className="block w-full">
-                <div className="relative aspect-[3/4] w-full cursor-pointer group rounded-lg overflow-hidden border-4 border-[#3C3883]">
-                  <Image
-                    src={
-                      editorialImages[editorialIndex].src || "/placeholder.svg"
-                    }
-                    alt={editorialImages[editorialIndex].alt}
-                    fill
-                    className={`object-cover transition-all duration-500 group-hover:scale-105 ${
-                      editorialFading ? "opacity-0" : "opacity-100"
-                    }`}
-                    style={{
-                      transition:
-                        "opacity 500ms ease-in-out, transform 500ms ease-in-out",
-                    }}
-                  />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 flex items-center justify-center"></div>
+              </div>
+              <div className="lg:w-1/2 text-center lg:text-left">
+                <h2 className="text-5xl md:text-6xl font-bold text-black mb-8">
+                  Howdy!
+                  <br />
+                  I'm Maggie!
+                </h2>
+                <div className="text-lg md:text-xl text-gray-700 leading-relaxed space-y-6">
+                  <span className="block">
+                    I am a Texas and Ann Arbor, Michigan–based photographer. My
+                    style blends the authenticity of candid photos with the
+                    intentionality in posed photos.
+                  </span>
+                  <span className="block">
+                    I want to capture the real you—genuine, and full of life—to
+                    celebrate your special moments.
+                  </span>
                 </div>
-              </Link>
-            </div>
-
-            {/* Lifestyle Column */}
-            <div className="flex flex-col items-center">
-              <h3 className="text-2xl font-bold text-[#3C3883] mb-4 uppercase tracking-wider">
-                Lifestyle
-              </h3>
-              <Link href="/gallery" className="block w-full">
-                <div className="relative aspect-[3/4] w-full cursor-pointer group rounded-lg overflow-hidden border-4 border-[#3C3883]">
-                  <Image
-                    src={
-                      lifestyleImages[lifestyleIndex].src || "/placeholder.svg"
-                    }
-                    alt={lifestyleImages[lifestyleIndex].alt}
-                    fill
-                    className={`object-cover transition-all duration-500 group-hover:scale-105 ${
-                      lifestyleFading ? "opacity-0" : "opacity-100"
-                    }`}
-                    style={{
-                      transition:
-                        "opacity 500ms ease-in-out, transform 500ms ease-in-out",
-                    }}
-                  />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 flex items-center justify-center"></div>
-                </div>
-              </Link>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+
+        {/* My Mission Section */}
+        <section className="py-20 px-4 md:px-8 bg-gray-50">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="flex items-center justify-center mb-8">
+              <h2 className="text-4xl md:text-5xl font-bold text-black">
+                My Mission
+              </h2>
+            </div>
+            <div className="text-lg md:text-xl text-gray-700 leading-relaxed space-y-6 max-w-3xl mx-auto">
+              <span className="block">
+                Memories can't be recreated, but they can be preserved. I'm here
+                to capture life as it happens.
+              </span>
+              <span className="block">
+                I believe in living in the moment, and I bring that same
+                intentionality to my photography. I let you stay present while I
+                capture your moments, because they matter!
+              </span>
+            </div>
+          </div>
+        </section>
+
+        {/* History Section */}
+        <section className="py-20 px-4 md:px-8 bg-white">
+          <div className="max-w-6xl mx-auto">
+            <div className="flex flex-col lg:flex-row-reverse items-center gap-16">
+              <div className="lg:w-1/2">
+                <div className="relative w-96 h-[400px] mx-auto">
+                  <Image
+                    src="/placeholder.svg?height=500&width=400"
+                    alt="Photography journey"
+                    fill
+                    className="object-cover grayscale shadow-lg"
+                  />
+                </div>
+              </div>
+              <div className="lg:w-1/2">
+                <div className="flex items-center mb-8">
+                  <Camera className="h-12 w-12 text-black mr-4" />
+                  <h2 className="text-4xl md:text-5xl font-bold text-black">
+                    How did I get into photography?
+                  </h2>
+                </div>
+                <div className="text-lg text-gray-700 leading-relaxed space-y-6">
+                  <span className="block">
+                    Like other makers, I grew up around creativity. Many
+                    childhood photos feature me with a drawing or something with
+                    a likeness to a painting. I've known traditional art since I
+                    was young.
+                  </span>
+                  <span className="block">
+                    Photography slowly worked its way into my life, so I cannot
+                    pinpoint the exact time I started, but my first professional
+                    camera was gifted to me on my 13th birthday.
+                  </span>
+                  <span className="block">
+                    My parents hesitated to buy me a camera because they worried
+                    it was just another one of my artistic phases… safe to say
+                    sewing, needle felting, and ceramics did not secure a
+                    permanent spot in my life. However, this time, their
+                    investment in my interest was well worth it.
+                  </span>
+                  <span className="block">
+                    Since I grew up documenting my life on camera, it didn't
+                    feel like a new phase. I was what I'd always done, just with
+                    different lenses.
+                  </span>
+                  <span className="block font-medium">
+                    Now, I pursue this business with new cameras, new knowledge,
+                    but the same passion.
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Fun Facts Section */}
+        <section className="py-20 px-4 md:px-8 bg-gray-50">
+          <div className="max-w-6xl mx-auto">
+            <div className="flex flex-col lg:flex-row items-center gap-16">
+              <div className="lg:w-1/2">
+                <div className="relative w-96 h-[500px] mx-auto">
+                  <Image
+                    src="/about/headshot2.jpg"
+                    alt="Fun facts about Maggie"
+                    fill
+                    className="object-cover grayscale shadow-lg"
+                  />
+                </div>
+              </div>
+              <div className="lg:w-1/2">
+                <h2 className="text-4xl md:text-5xl font-bold text-black mb-12 text-center lg:text-left">
+                  QUICK FACTS
+                </h2>
+                <div className="space-y-8">
+                  <div className="flex items-start">
+                    <GraduationCap className="h-6 w-6 text-black mr-4 mt-1 flex-shrink-0" />
+                    <span className="text-lg text-gray-700">
+                      I'm a business major at The University of Michigan
+                    </span>
+                  </div>
+                  <div className="flex items-start">
+                    <Music className="h-6 w-6 text-black mr-4 mt-1 flex-shrink-0" />
+                    <div>
+                      <span className="text-lg text-gray-700 block">
+                        Some music artists I like:
+                      </span>
+                      <span className="text-lg text-gray-600 block mt-1">
+                        Matt Maltese, The Smiths, The Jayhawks
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex items-start">
+                    <span className="text-lg text-gray-700">
+                      Huge animal person. Mom to 3 cats and 1 dog
+                    </span>
+                  </div>
+                  <div className="flex items-start">
+                    <Guitar className="h-6 w-6 text-black mr-4 mt-1 flex-shrink-0" />
+                    <span className="text-lg text-gray-700">
+                      I enjoy playing guitar
+                    </span>
+                  </div>
+                  <div className="flex items-start">
+                    <div className="h-6 w-6 bg-black rounded-full mr-4 mt-1 flex-shrink-0 flex items-center justify-center">
+                      <span className="text-white text-xs font-bold">S</span>
+                    </div>
+                    <span className="text-lg text-gray-700">
+                      Retired Swimmer
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-20 px-4 md:px-8 bg-white">
+          <div className="max-w-4xl mx-auto text-center">
+            <h3 className="text-3xl md:text-4xl font-bold text-black mb-6">
+              Ready to work together?
+            </h3>
+            <span className="text-lg md:text-xl text-gray-700 mb-8 block">
+              Let's create something beautiful and capture your special moments.
+            </span>
+            <Link
+              href="/contact"
+              className="inline-flex items-center bg-black text-white px-8 py-4 font-bold hover:bg-gray-800 transition-colors duration-300 text-lg"
+            >
+              Get In Touch
+            </Link>
+          </div>
+        </section>
+      </div>
     </main>
   );
 }

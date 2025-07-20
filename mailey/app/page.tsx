@@ -2,7 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, HelpCircle, MessageCircle } from "lucide-react";
+import {
+  ArrowRight,
+  HelpCircle,
+  MessageCircle,
+  Quote,
+  Star,
+} from "lucide-react";
 import PhotoCarousel from "./components/PhotoCarousel";
 import { useEffect, useState } from "react";
 
@@ -14,6 +20,30 @@ export default function Home() {
     "/headers/home_bg.jpg",
     "/headers/booking_bg.jpg",
     "/headers/gallery_bg.jpg",
+  ];
+
+  // Testimonials data
+  const testimonials = [
+    {
+      name: "S.J.",
+      text: "Maggie is the BEST! Not only did I get the most wonderful photos, but she was so sweet and considerate! Her attention to detail and politeness throughout the entire shoot was truly incredible. Friends and family members raved about her work. An outstanding photographer and individual, I could not recommend her more!",
+    },
+    {
+      name: "A.F.",
+      text: "Maggie was an amazing photographer. I was immediately put at ease and the process was really fun and enjoyable. Maggie has a variety of ideas and is extremely creative. 10/10 recommend!",
+    },
+    {
+      name: "K.D.",
+      text: "I had such an amazing time! Maggie did a great job getting good lighting, finding the perfect spots, and editing the photos... …I highly recommend booking for your grad photos!!",
+    },
+    {
+      name: "S.K.",
+      text: "I had the best time shooting with Maggie! This was my first photoshoot ever and she made sure to make me feel super comfortable through it all.",
+    },
+    {
+      name: "S.H.",
+      text: "Maggie was amazing! She is skilled and confident but also super fun to work with. I also got to see her shoot for a friend, and that was super fun as well. Overall the experience was great and I would definitely book with her again.",
+    },
   ];
 
   useEffect(() => {
@@ -82,49 +112,44 @@ export default function Home() {
               Start Booking Process <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </div>
+        </div>
+      </section>
+      {/* Testimonials Section */}
+      <section className="relative z-10 w-full bg-gray-100 py-20 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 mb-16">
+          <div className="text-center">
+            <h2 className="text-4xl md:text-6xl font-bold text-black mb-6">
+              What Clients Say
+            </h2>
+            <span className="text-lg md:text-xl text-gray-700 block">
+              Don't just take our word for it - hear from our amazing clients
+            </span>
+          </div>
+        </div>
 
-          {/* Booking Process Images */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
-            <div className="relative h-64">
-              <Image
-                src="/placeholder.svg?height=300&width=400"
-                alt="Choose your package"
-                fill
-                className="object-cover grayscale"
-              />
-              <div className="absolute inset-0 bg-black/20"></div>
-              <div className="absolute bottom-4 left-4">
-                <span className="text-white font-bold text-lg">
-                  Choose Package
-                </span>
+        {/* Scrolling Testimonials */}
+        <div className="relative">
+          <div className="flex scroll-animation">
+            {/* Duplicate testimonials for seamless loop */}
+            {[...testimonials, ...testimonials].map((testimonial, index) => (
+              <div key={index} className="flex-shrink-0 w-96 mx-4">
+                <div className="bg-white p-8 shadow-lg h-80 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center mb-4">
+                      <Quote className="h-8 w-8 text-gray-400 mr-3" />
+                    </div>
+                    <p className="text-gray-700 text-lg leading-relaxed mb-6 line-clamp-4">
+                      "{testimonial.text}"
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-black text-lg">
+                      {testimonial.name}
+                    </h4>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div className="relative h-64">
-              <Image
-                src="/placeholder.svg?height=300&width=400"
-                alt="Book your date"
-                fill
-                className="object-cover grayscale"
-              />
-              <div className="absolute inset-0 bg-black/20"></div>
-              <div className="absolute bottom-4 left-4">
-                <span className="text-white font-bold text-lg">Book Date</span>
-              </div>
-            </div>
-            <div className="relative h-64">
-              <Image
-                src="/placeholder.svg?height=300&width=400"
-                alt="Enjoy your session"
-                fill
-                className="object-cover grayscale"
-              />
-              <div className="absolute inset-0 bg-black/20"></div>
-              <div className="absolute bottom-4 left-4">
-                <span className="text-white font-bold text-lg">
-                  Enjoy Session
-                </span>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>

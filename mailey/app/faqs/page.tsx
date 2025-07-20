@@ -86,13 +86,23 @@ export default function FAQsPage() {
                     <ChevronDown className="h-5 w-5 text-gray-600 flex-shrink-0" />
                   )}
                 </button>
-                {openFAQ === index && (
-                  <div className="px-6 py-4 bg-white">
+                <div
+                  id={`faq-answer-${index}`}
+                  className="px-6 bg-white transition-all duration-500 ease-in-out overflow-hidden"
+                  style={{
+                    maxHeight: openFAQ === index ? "500px" : "0px",
+                    opacity: openFAQ === index ? 1 : 0,
+                    paddingTop: openFAQ === index ? "1rem" : "0",
+                    paddingBottom: openFAQ === index ? "1rem" : "0",
+                  }}
+                  aria-hidden={openFAQ !== index}
+                >
+                  {openFAQ === index && (
                     <span className="text-gray-700 leading-relaxed">
                       {faq.answer}
                     </span>
-                  </div>
-                )}
+                  )}
+                </div>
               </div>
             ))}
           </div>

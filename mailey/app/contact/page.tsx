@@ -17,9 +17,9 @@ export default function ContactPage() {
     <main className="min-h-screen">
       {/* Fullscreen Hero Section */}
       <section className="relative h-screen w-full flex flex-col items-center justify-center">
-        <div className="absolute inset-0 z-0">
+        <div className="fixed inset-0 z-0">
           <Image
-            src="/about/senior2.jpg"
+            src="/headers/contact_bg.jpg"
             alt="Contact hero image"
             fill
             priority
@@ -28,7 +28,7 @@ export default function ContactPage() {
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
         <div className="relative z-10 text-center">
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-wider">
+          <h1 className="text-5xl md:text-7xl text-white mb-6 tracking-wider">
             CONTACT
           </h1>
         </div>
@@ -36,11 +36,11 @@ export default function ContactPage() {
 
       {/* Content Section */}
       <div
-        className={`transition-opacity duration-500 ${
+        className={`relative z-10 transition-opacity duration-500 ${
           showContent ? "opacity-100" : "opacity-0"
         }`}
       >
-        <section className="py-16 px-4 md:px-8 bg-white">
+        <section className="py-16 px-4 md:px-8 bg-white pt-30 pb-30">
           <ContactForm />
         </section>
 
