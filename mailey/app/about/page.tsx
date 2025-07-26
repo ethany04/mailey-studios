@@ -26,22 +26,13 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-black/40"></div>
       </div>
 
-      {/* Hero Section */}
-      <section className="relative h-screen w-full flex flex-col items-center justify-center z-10">
-        <div className="relative z-10 text-center">
-          <h1 className="text-5xl md:text-7xl text-white mb-6 tracking-wider">
-            ABOUT
-          </h1>
-        </div>
-      </section>
-
       {/* Content Section */}
       <div
         className={`relative z-10 transition-opacity duration-500 ${showContent ? "opacity-100" : "opacity-0"}`}
       >
         {/* Introduction Section */}
-        <section className="py-20 px-4 md:px-8 bg-white">
-          <div className="max-w-6xl mx-auto">
+        <section className="py-20 px-4 md:px-8 bg-white h-screen">
+          <div className="max-w-6xl mx-auto pt-20">
             <div className="flex flex-col lg:flex-row items-center gap-16">
               <div className="lg:w-1/2">
                 <div className="relative w-96 h-[500px] mx-auto">
@@ -75,15 +66,25 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* Hero Section 
+      <section className="relative h-screen w-full flex flex-col items-center justify-center z-10">
+        <div className="relative z-10 text-center">
+          <h1 className="text-5xl md:text-7xl text-white mb-6 tracking-wider">
+            ABOUT
+          </h1>
+        </div>
+      </section>
+      */}
+
         {/* My Mission Section */}
-        <section className="py-20 px-4 md:px-8 bg-gray-50">
+        <section className="py-20 px-4 md:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <div className="flex items-center justify-center mb-8">
-              <h2 className="text-4xl md:text-5xl font-bold text-black">
+              <h2 className="text-4xl md:text-5xl font-bold text-white">
                 My Mission
               </h2>
             </div>
-            <div className="text-lg md:text-xl text-gray-700 leading-relaxed space-y-6 max-w-3xl mx-auto">
+            <div className="text-lg md:text-xl text-white leading-relaxed space-y-6 max-w-3xl mx-auto">
               <span className="block">
                 Memories can't be recreated, but they can be preserved. I'm here
                 to capture life as it happens.
@@ -113,7 +114,6 @@ export default function AboutPage() {
               </div>
               <div className="lg:w-1/2">
                 <div className="flex items-center mb-8">
-                  <Camera className="h-12 w-12 text-black mr-4" />
                   <h2 className="text-4xl md:text-5xl font-bold text-black">
                     How did I get into photography?
                   </h2>
@@ -172,13 +172,11 @@ export default function AboutPage() {
                 </h2>
                 <div className="space-y-8">
                   <div className="flex items-start">
-                    <GraduationCap className="h-6 w-6 text-black mr-4 mt-1 flex-shrink-0" />
                     <span className="text-lg text-gray-700">
                       I'm a business major at The University of Michigan
                     </span>
                   </div>
                   <div className="flex items-start">
-                    <Music className="h-6 w-6 text-black mr-4 mt-1 flex-shrink-0" />
                     <div>
                       <span className="text-lg text-gray-700 block">
                         Some music artists I like:
@@ -194,15 +192,11 @@ export default function AboutPage() {
                     </span>
                   </div>
                   <div className="flex items-start">
-                    <Guitar className="h-6 w-6 text-black mr-4 mt-1 flex-shrink-0" />
                     <span className="text-lg text-gray-700">
                       I enjoy playing guitar
                     </span>
                   </div>
                   <div className="flex items-start">
-                    <div className="h-6 w-6 bg-black rounded-full mr-4 mt-1 flex-shrink-0 flex items-center justify-center">
-                      <span className="text-white text-xs font-bold">S</span>
-                    </div>
                     <span className="text-lg text-gray-700">
                       Retired Swimmer
                     </span>

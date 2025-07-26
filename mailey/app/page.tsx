@@ -102,7 +102,7 @@ export default function Home() {
               Ready to book?
             </h2>
             <span className="text-lg md:text-xl text-gray-700 block mb-8">
-              Our simple 5-step process makes booking your session easy and
+              My simple 5-step process makes booking your session easy and
               stress-free.
             </span>
             <Link
@@ -122,7 +122,7 @@ export default function Home() {
               What Clients Say
             </h2>
             <span className="text-lg md:text-xl text-gray-700 block">
-              Don't just take our word for it - hear from our amazing clients
+              Don't just take my word for it - hear from amazing clients
             </span>
           </div>
         </div>

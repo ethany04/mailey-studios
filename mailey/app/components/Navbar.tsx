@@ -4,14 +4,15 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "Booking", href: "/booking" },
   { name: "Contact", href: "/contact" },
   {
-    name: "Gallery",
-    href: "https://maileystudios.pixieset.com/portfoliophotos/",
+    name: "Portfolio",
+    href: "/portfolio",
   },
   { name: "About", href: "/about" },
   { name: "FAQs", href: "/faqs" },
@@ -23,6 +24,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   const isFAQsPage = pathname === "/faqs";
+  const isAbtPage = pathname === "/about";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,7 +34,7 @@ export default function Navbar() {
     };
 
     // Only add scroll listener if not on FAQs page
-    if (!isFAQsPage) {
+    if (!isFAQsPage || !isAbtPage) {
       window.addEventListener("scroll", handleScroll);
       // Initial check
       handleScroll();
@@ -40,14 +42,14 @@ export default function Navbar() {
 
     // Clean up
     return () => {
-      if (!isFAQsPage) {
+      if (!isFAQsPage || !isAbtPage) {
         window.removeEventListener("scroll", handleScroll);
       }
     };
-  }, [isFAQsPage]);
+  }, [isFAQsPage, isAbtPage]);
 
   // Force scrolled style on FAQs page
-  const isScrolledStyle = isFAQsPage || scrolled;
+  const isScrolledStyle = isFAQsPage || isAbtPage || scrolled;
 
   return (
     <>
@@ -78,7 +80,7 @@ export default function Navbar() {
                   isScrolledStyle ? "text-black" : "text-white"
                 }`}
               >
-                <span>Maggie Whitten Photography</span>
+                <Image src="/logo.svg" alt="logo" width={100} height={100} />
               </Link>
             </div>
 

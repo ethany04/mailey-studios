@@ -2,13 +2,6 @@
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardContent,
-} from "@/components/ui/card";
 
 import { Textarea } from "@/components/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -76,47 +69,44 @@ export default function ContactForm() {
   ) : (
     <div className="mx-auto max-w-md justify-center">
       <div className="flex justify-center align-middle">
-        <h1 className="text-bold text-4xl pb-10">
+        <h1 className="text-bold text-4xl pb-17">
           Fill out your information below
         </h1>
       </div>
 
-      <CardContent>
+      <div className="mx-auto max-w-md justify-center align-middle">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <FormField
-                  control={form.control}
-                  name="firstName"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>First Name</FormLabel>
-                      <FormControl>
-                        <Input placeholder="Your First Name" {...field} />
-                      </FormControl>
+            <div className="space-y-2">
+              <FormField
+                control={form.control}
+                name="firstName"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>First Name</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Your First Name" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <div className="space-y-2">
+              <FormField
+                control={form.control}
+                name="lastName"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Last Name</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Your Last Name" {...field} />
+                    </FormControl>
 
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-              </div>
-              <div className="space-y-2">
-                <FormField
-                  control={form.control}
-                  name="lastName"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Last Name</FormLabel>
-                      <FormControl>
-                        <Input placeholder="Your Last Name" {...field} />
-                      </FormControl>
-
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-              </div>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
             </div>
             <div className="space-y-2">
               <FormField
@@ -160,7 +150,7 @@ export default function ContactForm() {
                     <FormControl>
                       <Textarea
                         id="message"
-                        placeholder="How can we help you?"
+                        placeholder="How can I help you?"
                         className="min-h-[120px]"
                         {...field}
                       />
@@ -176,7 +166,7 @@ export default function ContactForm() {
             </Button>
           </form>
         </Form>
-      </CardContent>
+      </div>
     </div>
   );
 }

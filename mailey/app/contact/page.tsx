@@ -51,7 +51,7 @@ export default function ContactPage() {
             </h3>
             <span className="text-lg text-gray-700 mb-8 max-w-3xl mx-auto block">
               Let's work together to capture your special moments. Click the
-              button below to check our availability and book your session.
+              button below to check my availability and book your session.
             </span>
             <Link
               href="https://booking.maileystudios.com"

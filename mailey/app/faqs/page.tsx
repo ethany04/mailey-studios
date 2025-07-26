@@ -112,14 +112,14 @@ export default function FAQsPage() {
               Still have questions?
             </h3>
             <span className="text-lg text-gray-700 mb-8 block">
-              Don't hesitate to reach out! We're here to help make your
+              Don't hesitate to reach out! I'm here to help make your
               photography experience perfect.
             </span>
             <a
               href="/contact"
               className="inline-flex items-center bg-black text-white px-8 py-4 hover:bg-gray-800 transition-colors duration-300 text-lg font-bold"
             >
-              Contact Us
+              Contact Me
             </a>
           </div>
         </div>
