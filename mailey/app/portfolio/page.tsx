@@ -132,21 +132,29 @@ export default function PhotographyPortfolio() {
                   onMouseEnter={() => setIsAutoPlaying(false)}
                   onMouseLeave={() => setIsAutoPlaying(true)}
                 >
-                  <div className="relative w-64 h-96 overflow-hidden rounded-lg shadow-2xl">
+                  <div className="relative overflow-visible">
                     <Image
                       src={item.image || "/placeholder.svg"}
                       alt={item.title}
-                      fill
-                      className={`object-cover transition-all duration-700 ${
+                      width={320}
+                      height={480}
+                      className={`object-contain transition-all duration-700 ${
                         item.isCurrent
                           ? "grayscale-0 brightness-100"
                           : "grayscale brightness-75"
-                      } group-hover:scale-105`}
+                      } group-hover:scale-105 drop-shadow-2xl`}
                     />
 
-                    {/* Overlay for non-current items */}
-                    {!item.isCurrent && (
-                      <div className="absolute inset-0 bg-black/20" />
+                    {/* Enhanced shadow for depth */}
+                    {item.isCurrent && (
+                      <div
+                        className="absolute inset-0 -z-10 transition-all duration-700"
+                        style={{
+                          background:
+                            "radial-gradient(ellipse at center bottom, rgba(0, 0, 0, 0.2) 0%, transparent 70%)",
+                          transform: "translateY(20px) scaleX(0.8)",
+                        }}
+                      />
                     )}
 
                     {/* Hover effect */}

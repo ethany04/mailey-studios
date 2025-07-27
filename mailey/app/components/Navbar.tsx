@@ -169,18 +169,26 @@ function NavLink({
   pathname: string;
   scrolled: boolean;
 }) {
-  return (
-    <Link
+  const isPortfolio = link.href === "/portfolio";
+  const baseClasses = `px-3 py-2 mx-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+    pathname === link.href
+      ? "text-black font-bold"
+      : scrolled
+        ? "text-gray-700 hover:text-black"
+        : "text-white hover:text-white/80"
+  }`;
+  return isPortfolio ? (
+    <a
       href={link.href}
-      className={`px-3 py-2 mx-2 rounded-md text-sm font-medium transition-colors duration-200 ${
-        pathname === link.href
-          ? "text-black font-bold"
-          : scrolled
-            ? "text-gray-700 hover:text-black"
-            : "text-white hover:text-white/80"
-      }`}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={baseClasses}
     >
-      <span>{link.name}</span>
+      {link.name}
+    </a>
+  ) : (
+    <Link href={link.href} className={baseClasses}>
+      {link.name}
     </Link>
   );
 }

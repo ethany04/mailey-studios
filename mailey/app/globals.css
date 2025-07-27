@@ -270,3 +270,100 @@ span {
     @apply bg-background text-foreground;
   }
 }
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Smooth transitions for all elements */
+* {
+  transition-property: transform, opacity, filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced carousel animations */
+.carousel-item {
+  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.text-carousel-item {
+  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Smooth focus transitions */
+.focus-ring {
+  transition: all 0.7s ease-out;
+}
+
+/* Prevent layout shift during transitions */
+.carousel-container {
+  contain: layout style paint;
+}
+
+/* Enhanced drop shadows for cutout images */
+.cutout-shadow {
+  filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.15))
+    drop-shadow(0 10px 25px rgba(0, 0, 0, 0.1));
+}
+
+.cutout-shadow-focused {
+  filter: drop-shadow(0 35px 70px rgba(0, 0, 0, 0.25))
+    drop-shadow(0 15px 35px rgba(0, 0, 0, 0.15))
+    drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+}
+
+/* Smooth transitions for cutout effects */
+.cutout-transition {
+  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Ground shadow effect */
+.ground-shadow {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.1) 40%,
+    transparent 70%
+  );
+  transform: translateY(20px) scaleX(0.8) scaleY(0.3);
+}
