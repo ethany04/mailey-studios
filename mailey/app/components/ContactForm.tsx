@@ -67,10 +67,23 @@ export default function ContactForm() {
       <Confetti numberOfPieces={900} recycle={false} />
     </div>
   ) : (
-    <div className="mx-auto max-w-md justify-center">
+    <div className="mx-auto max-w-full justify-center">
+      <div className="flex justify-center align-middle">
+        <h1 className="text-bold text-4xl pb-7">
+          Have questions or need to book/inquire?
+        </h1>
+      </div>
+      <div className="flex justify-center align-middle">
+        <h1 className="text-bold text-4xl pb-7">
+          Senior bookings go{" "}
+          <a href="/booking" className="underline font-bold">
+            here
+          </a>
+        </h1>
+      </div>
       <div className="flex justify-center align-middle">
         <h1 className="text-bold text-4xl pb-17">
-          Fill out your information below
+          All other questions or bookings, inquire below
         </h1>
       </div>
 

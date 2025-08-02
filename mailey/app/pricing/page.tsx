@@ -1,146 +1,288 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Check, ArrowRight } from "lucide-react";
+import { ChevronDown } from "lucide-react";
+import { Timeline } from "../components/Timeline";
+import PhotoCarousel from "../components/PhotoCarousel";
 
-export default function PricingPage() {
-  return (
-    <main className="min-h-screen bg-[#BAC3FF] pt-10">
-      <section className="py-16 px-4 md:px-8">
-        <div className="max-w-6xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold text-center text-[#3C3883] mb-6">
-            Our Pricing
-          </h1>
-          <p className="text-xl text-center text-gray-700 mb-16 max-w-3xl mx-auto">
-            Transparent pricing for all your photography needs. Choose the
-            package that best suits your vision and budget.
+export default function BookingPage() {
+  const [showContent, setShowContent] = useState(false);
+  const timelineData = [
+    {
+      title: "01",
+      content: (
+        <div className="space-y-2">
+          <p className="font-medium font-7xl">Choose Your Session Type! </p>
+        </div>
+      ),
+    },
+    {
+      title: "02",
+      content: (
+        <div className="space-y-2">
+          <p>
+            If you're a grad, choose{" "}
+            <a href="/packages" className="text-black underline">
+              package
+            </a>
           </p>
+          <p>
+            All other session types, please{" "}
+            <a href="/contact" className="text-black underline">
+              Inquire
+            </a>
+          </p>
+        </div>
+      ),
+    },
+    {
+      title: "03",
+      content: (
+        <div className="space-y-2">
+          <p className="font-medium">Book Online!</p>
+          <p className="text-sm text-neutral-400">
+            Secure a date on my booking site
+          </p>
+        </div>
+      ),
+    },
+    {
+      title: "04",
+      content: (
+        <div className="space-y-2">
+          <p className="font-medium">Pay Retainer</p>
+          <p className="text-sm text-neutral-400">
+            To secure your day, you will pay a 20% retainer on the day you book
+            or within 24 hours of receiving confirmation
+          </p>
+        </div>
+      ),
+    },
+    {
+      title: "05",
+      content: (
+        <div className="space-y-2">
+          <p className="font-medium">Decide on Outfit(s) and location(s)</p>
+          <p className="text-sm text-neutral-400">
+            After you have booked, and paid your retainer, you will fill out my
+            After-booking form. In it, I have curated guides for you to choose
+            your perfect outfits and locations!
+          </p>
+        </div>
+      ),
+    },
+    {
+      title: "Go to Shoot Day and Celebrate!",
+      content: <div className="space-y-2"></div>,
+    },
+  ];
 
-          {/* Seniors Pricing */}
-          <div className="mb-24">
-            <div className="flex flex-col lg:flex-row items-center gap-12 bg-white rounded-lg shadow-lg overflow-hidden">
-              <div className="lg:w-1/3 h-full">
-                <div className="relative h-64 lg:h-full w-full">
-                  <Image
-                    src="/about/senior1.jpg"
-                    alt="Senior photography"
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#3C3883]/50 to-transparent flex items-center justify-center">
-                    <h2 className="text-4xl font-bold text-white">Seniors</h2>
+  useEffect(() => {
+    setShowContent(true);
+  }, []);
+
+  return (
+    <main className="min-h-screen">
+      {/* Fixed Background Hero Section */}
+      <div className="fixed inset-0 z-0">
+        <Image
+          src="/headers/booking_bg.jpg"
+          alt="Booking and pricing hero image"
+          fill
+          priority
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black/40"></div>
+      </div>
+
+      {/* Hero Section */}
+      <section className="relative h-screen w-full flex flex-col items-center justify-center z-10">
+        <div className="relative z-10 text-center">
+          <h1 className="text-5xl md:text-7xl text-white mb-6 tracking-wider">
+            BOOKING & PRICING
+          </h1>
+          <ChevronDown className="h-8 w-8 text-white mx-auto animate-bounce" />
+        </div>
+      </section>
+      <div
+        className={`relative z-10 transition-opacity duration-500 ${showContent ? "opacity-100" : "opacity-0"}`}
+      >
+        {/* Timeline Section */}
+        <section id="timeline z-10">
+          <Timeline data={timelineData} />
+        </section>
+
+        {/* Pricing Section */}
+        <section id="pricing" className="py-20 px-4 md:px-8 bg-gray-50 z-10">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-6xl  font-bold text-center text-black mb-16">
+              Pricing
+            </h2>
+
+            {/* High School Seniors */}
+            <div className="mb-20">
+              <div className="flex flex-col lg:flex-row gap-12 items-center">
+                <div className="lg:w-1/2">
+                  <div className="relative aspect-[3/4] w-full max-w-md mx-auto">
+                    <Image
+                      src="/booking/senior_shoots.jpg"
+                      alt="High School Senior Photography"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+                <div className="lg:w-1/2 text-center">
+                  <h3 className="text-3xl md:text-4xl font-bold text-black mb-8 tracking-wider">
+                    HIGH SCHOOL SENIORS
+                  </h3>
+
+                  <div className="space-y-8">
+                    {/* Standard Package */}
+                    <div>
+                      <h4 className="text-xl font-bold text-gray-600 mb-4">
+                        STANDARD:
+                      </h4>
+                      <div className="space-y-2 text-lg text-gray-700">
+                        <span className="block">1 location / 1 outfit</span>
+                        <span className="block">30 min</span>
+                        <span className="block">20+ edited photos</span>
+                        <span className="block font-bold text-black text-xl">
+                          $350
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Deluxe Package */}
+                    <div>
+                      <h4 className="text-xl font-bold text-gray-600 mb-4">
+                        DELUXE:
+                      </h4>
+                      <div className="space-y-2 text-lg text-gray-700">
+                        <span className="block">2 locations / 2 outfits</span>
+                        <span className="block">1 hour</span>
+                        <span className="block">50+ edited photos</span>
+                        <span className="block font-bold text-black text-xl">
+                          $600
+                        </span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div className="lg:w-2/3 p-8">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  {/* Basic Package */}
-                  <div className="bg-[#CAD1FF] p-6 rounded-lg shadow">
-                    <h3 className="text-2xl font-bold text-[#3C3883] mb-2">
-                      Basic
-                    </h3>
-                    <p className="text-3xl font-bold mb-4">$200</p>
-                    <ul className="space-y-2 mb-6">
-                      <li className="flex items-start">
-                        <Check className="h-5 w-5 text-[#F0532B] mr-2 mt-1 flex-shrink-0" />
-                        <span>1 hour session</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="h-5 w-5 text-[#F0532B] mr-2 mt-1 flex-shrink-0" />
-                        <span>1 location</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="h-5 w-5 text-[#F0532B] mr-2 mt-1 flex-shrink-0" />
-                        <span>2 outfit changes</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="h-5 w-5 text-[#F0532B] mr-2 mt-1 flex-shrink-0" />
-                        <span>25 digital images</span>
-                      </li>
-                    </ul>
-                  </div>
+            </div>
 
-                  {/* Standard Package */}
-                  <div className="bg-[#DDA5AF] p-6 rounded-lg shadow transform scale-105">
-                    <div className="bg-[#F0532B] text-white text-xs font-bold uppercase py-1 px-3 rounded-full inline-block mb-2">
-                      Most Popular
+            {/* Editorial Photography */}
+            <div className="mb-20">
+              <div className="flex flex-col lg:flex-row-reverse gap-12 items-center">
+                <div className="lg:w-1/2">
+                  <div className="relative aspect-[3/4] w-full max-w-md mx-auto">
+                    <Image
+                      src="/booking/editorial_shoots.jpg"
+                      alt="Editorial Photography"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+                <div className="lg:w-1/2 text-center">
+                  <h3 className="text-3xl md:text-4xl font-bold text-black mb-8 tracking-wider">
+                    EDITORIAL
+                  </h3>
+
+                  <div className="space-y-8">
+                    {/* Standard Package */}
+                    <div>
+                      <h4 className="text-xl font-bold text-gray-600 mb-4">
+                        STANDARD:
+                      </h4>
+                      <div className="space-y-2 text-lg text-gray-700">
+                        <span className="block">Studio setting</span>
+                        <span className="block">2 hours</span>
+                        <span className="block">20+ edited photos</span>
+                        <span className="block font-bold text-black text-xl">
+                          $450
+                        </span>
+                      </div>
                     </div>
-                    <h3 className="text-2xl font-bold text-white mb-2">
-                      Standard
-                    </h3>
-                    <p className="text-3xl font-bold text-white mb-4">$300</p>
-                    <ul className="space-y-2 mb-6 text-white">
-                      <li className="flex items-start">
-                        <Check className="h-5 w-5 mr-2 mt-1 flex-shrink-0" />
-                        <span>2 hour session</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="h-5 w-5 mr-2 mt-1 flex-shrink-0" />
-                        <span>2 locations</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="h-5 w-5 mr-2 mt-1 flex-shrink-0" />
-                        <span>3 outfit changes</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="h-5 w-5 mr-2 mt-1 flex-shrink-0" />
-                        <span>50 digital images</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="h-5 w-5 mr-2 mt-1 flex-shrink-0" />
-                        <span>5 physical prints</span>
-                      </li>
-                    </ul>
-                  </div>
 
-                  {/* Premium Package */}
-                  <div className="bg-[#CAD1FF] p-6 rounded-lg shadow">
-                    <h3 className="text-2xl font-bold text-[#3C3883] mb-2">
-                      Premium
-                    </h3>
-                    <p className="text-3xl font-bold mb-4">$450</p>
-                    <ul className="space-y-2 mb-6">
-                      <li className="flex items-start">
-                        <Check className="h-5 w-5 text-[#F0532B] mr-2 mt-1 flex-shrink-0" />
-                        <span>3 hour session</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="h-5 w-5 text-[#F0532B] mr-2 mt-1 flex-shrink-0" />
-                        <span>3 locations</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="h-5 w-5 text-[#F0532B] mr-2 mt-1 flex-shrink-0" />
-                        <span>Unlimited outfit changes</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="h-5 w-5 text-[#F0532B] mr-2 mt-1 flex-shrink-0" />
-                        <span>All digital images</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="h-5 w-5 text-[#F0532B] mr-2 mt-1 flex-shrink-0" />
-                        <span>10 physical prints</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="h-5 w-5 text-[#F0532B] mr-2 mt-1 flex-shrink-0" />
-                        <span>Photo album</span>
-                      </li>
-                    </ul>
+                    {/* Deluxe Package */}
+                    <div>
+                      <h4 className="text-xl font-bold text-gray-600 mb-4">
+                        DELUXE:
+                      </h4>
+                      <div className="space-y-2 text-lg text-gray-700">
+                        <span className="block">Multiple locations</span>
+                        <span className="block">4 hours</span>
+                        <span className="block">40+ edited photos</span>
+                        <span className="block font-bold text-black text-xl">
+                          $750
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Lifestyle Photography */}
+            <div className="mb-50">
+              <div className="flex flex-col lg:flex-row gap-12 items-center">
+                <div className="lg:w-1/2">
+                  <div className="relative aspect-[3/4] w-full max-w-md mx-auto">
+                    <Image
+                      src="/booking/lifestyle_shoots.jpg"
+                      alt="Lifestyle Photography"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+                <div className="lg:w-1/2 text-center">
+                  <h3 className="text-3xl md:text-4xl font-bold text-black mb-8 tracking-wider">
+                    LIFESTYLE
+                  </h3>
+
+                  <div className="space-y-8">
+                    {/* Standard Package */}
+                    <div>
+                      <h4 className="text-xl font-bold text-gray-600 mb-4">
+                        STANDARD:
+                      </h4>
+                      <div className="space-y-2 text-lg text-gray-700">
+                        <span className="block">1 location / 2 outfits</span>
+                        <span className="block">1.5 hours</span>
+                        <span className="block">30+ edited photos</span>
+                        <span className="block font-bold text-black text-xl">
+                          $400
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Deluxe Package */}
+                    <div>
+                      <h4 className="text-xl font-bold text-gray-600 mb-4">
+                        DELUXE:
+                      </h4>
+                      <div className="space-y-2 text-lg text-gray-700">
+                        <span className="block">2 locations / 3 outfits</span>
+                        <span className="block">2.5 hours</span>
+                        <span className="block">60+ edited photos</span>
+                        <span className="block font-bold text-black text-xl">
+                          $650
+                        </span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
-          {/* Book Now CTA */}
-          <div className="text-center">
-            <Link
-              href="/booking"
-              className="inline-flex items-center bg-[#F0532B] text-white px-8 py-4 rounded-full hover:bg-[#F88331] transition-colors duration-300 text-xl font-bold"
-            >
-              Book Your Session Now <ArrowRight className="ml-2 h-6 w-6" />
-            </Link>
-          </div>
-        </div>
-      </section>
+        </section>
+        <PhotoCarousel />
+      </div>
     </main>
   );
 }
