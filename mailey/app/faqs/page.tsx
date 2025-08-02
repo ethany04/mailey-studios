@@ -89,9 +89,13 @@ export default function FAQsPage() {
                   </div>
                 </button>
                 <div
-                  className={`overflow-hidden transition-all duration-500 ease-in-out ${openFAQ === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}
+                  className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                    openFAQ === index
+                      ? "max-h-96 opacity-100 transform translate-y-0"
+                      : "max-h-0 opacity-0 transform -translate-y-2"
+                  }`}
                 >
-                  <div className="px-6 py-4 bg-white">
+                  <div className="px-6 py-4 bg-white transform transition-transform duration-500 ease-in-out">
                     <span className="text-gray-700 leading-relaxed">
                       {faq.answer}
                     </span>
