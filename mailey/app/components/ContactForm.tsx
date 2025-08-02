@@ -64,7 +64,7 @@ export default function ContactForm() {
       <h1 className="text-center text-3xl">
         Thank you! We'll get back to you as soon as possible
       </h1>
-      <Confetti />
+      <Confetti numberOfPieces={900} recycle={false} />
     </div>
   ) : (
     <div className="mx-auto max-w-md justify-center">

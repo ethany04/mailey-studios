@@ -71,7 +71,7 @@ export default function FAQsPage() {
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="border border-gray-200 overflow-hidden"
+                className="border border-gray-200 rounded-lg overflow-hidden shadow-sm"
               >
                 <button
                   className="w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 transition-colors duration-200 flex justify-between items-center"
@@ -80,28 +80,22 @@ export default function FAQsPage() {
                   <h3 className="text-lg font-bold text-black pr-4">
                     {faq.question}
                   </h3>
-                  {openFAQ === index ? (
-                    <ChevronUp className="h-5 w-5 text-gray-600 flex-shrink-0" />
-                  ) : (
-                    <ChevronDown className="h-5 w-5 text-gray-600 flex-shrink-0" />
-                  )}
+                  <div className="transform transition-transform duration-300 ease-in-out">
+                    {openFAQ === index ? (
+                      <ChevronUp className="h-5 w-5 text-gray-600 flex-shrink-0" />
+                    ) : (
+                      <ChevronDown className="h-5 w-5 text-gray-600 flex-shrink-0" />
+                    )}
+                  </div>
                 </button>
                 <div
-                  id={`faq-answer-${index}`}
-                  className="px-6 bg-white transition-all duration-500 ease-in-out overflow-hidden"
-                  style={{
-                    maxHeight: openFAQ === index ? "500px" : "0px",
-                    opacity: openFAQ === index ? 1 : 0,
-                    paddingTop: openFAQ === index ? "1rem" : "0",
-                    paddingBottom: openFAQ === index ? "1rem" : "0",
-                  }}
-                  aria-hidden={openFAQ !== index}
+                  className={`overflow-hidden transition-all duration-500 ease-in-out ${openFAQ === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}
                 >
-                  {openFAQ === index && (
+                  <div className="px-6 py-4 bg-white">
                     <span className="text-gray-700 leading-relaxed">
                       {faq.answer}
                     </span>
-                  )}
+                  </div>
                 </div>
               </div>
             ))}

@@ -9,27 +9,33 @@ import { ChevronLeft, ChevronRight, Menu } from "lucide-react";
 const portfolioData = [
   {
     id: 1,
-    title: "Booking",
-    image: "/Cutouts/70sFallA_Squared.png",
-    link: "/faqs",
+    title: "URBAN SHADOWS",
+    image: "/Cutouts/ADDI D.png",
+    link: "/portfolio/urban-shadows",
   },
   {
     id: 2,
-    title: "Contact",
-    image: "/Cutouts/ADDI D.png",
-    link: "/faqs",
+    title: "GOLDEN HOUR",
+    image: "/Cutouts/JaydenB_.png",
+    link: "/portfolio/golden-hour",
   },
   {
     id: 3,
-    title: "Gallery",
-    image: "/Cutouts/CollageBrandingShoot.png",
-    link: "/faqs",
+    title: "MINIMALIST FORMS",
+    image: "/Cutouts/Elena A_.png",
+    link: "/portfolio/minimalist-forms",
   },
   {
     id: 4,
-    title: "Home",
-    image: "/Cutouts/Elena A_.png",
-    link: "/faqs",
+    title: "NEON NIGHTS",
+    image: "/Cutouts/ARI G_.png",
+    link: "/portfolio/neon-nights",
+  },
+  {
+    id: 5,
+    title: "NATURAL LIGHT",
+    image: "/Cutouts/SheiFeb.png",
+    link: "/portfolio/natural-light",
   },
 ];
 
@@ -99,7 +105,7 @@ export default function PhotographyPortfolio() {
               <div className="text-sm text-gray-400 mb-2 opacity-40">
                 {textData.previous.title}
               </div>
-              <div className="text-2xl md:text-3xl font-bold mb-2 tracking-wider">
+              <div className="text-xl md:text-2xl font-bold mb-2 tracking-wider">
                 {textData.current.title}
               </div>
 
@@ -132,33 +138,20 @@ export default function PhotographyPortfolio() {
                   onMouseEnter={() => setIsAutoPlaying(false)}
                   onMouseLeave={() => setIsAutoPlaying(true)}
                 >
-                  <div className="relative overflow-visible">
+                  <div className="relative w-64 h-112 overflow-visible rounded-lg">
                     <Image
                       src={item.image || "/placeholder.svg"}
                       alt={item.title}
-                      width={320}
-                      height={480}
+                      fill
                       className={`object-contain transition-all duration-700 ${
                         item.isCurrent
                           ? "grayscale-0 brightness-100"
                           : "grayscale brightness-75"
-                      } group-hover:scale-105 drop-shadow-2xl`}
+                      } group-hover:scale-105`}
                     />
 
-                    {/* Enhanced shadow for depth */}
-                    {item.isCurrent && (
-                      <div
-                        className="absolute inset-0 -z-10 transition-all duration-700"
-                        style={{
-                          background:
-                            "radial-gradient(ellipse at center bottom, rgba(0, 0, 0, 0.2) 0%, transparent 70%)",
-                          transform: "translateY(20px) scaleX(0.8)",
-                        }}
-                      />
-                    )}
-
                     {/* Hover effect */}
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300" />
+                    <div className="absolute inset-0 transition-all duration-300" />
                   </div>
                 </Link>
               );
