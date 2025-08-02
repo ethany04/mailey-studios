@@ -60,10 +60,12 @@ export default function ContactForm() {
     }
   }
   return isSubmitted ? (
-    <div>
-      <h1 className="text-center text-3xl">
-        Thank you! We'll get back to you as soon as possible
+    <div className="flex flex-col justify-center align-middle">
+      <h1 className="text-center text-3xl pb-5">
+        Thank you for your response, I will make sure to get back to you as soon
+        as I can
       </h1>
+      <p className="text-center">Normal response time is less than 24 hours!</p>
       <Confetti numberOfPieces={900} recycle={false} />
     </div>
   ) : (
