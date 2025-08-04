@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight, Menu } from "lucide-react";
+import EmblaCarousel from "../components/EmblaCarousel";
 
 // Sample portfolio data
 const portfolioData = [
@@ -119,43 +120,7 @@ export default function PhotographyPortfolio() {
         {/* Image Carousel */}
         <div className="relative h-[500px] overflow-hidden">
           <div className="flex items-center justify-center h-full">
-            {visibleItems.map((item, index) => {
-              const scale = item.isCurrent ? 1 : 0.6;
-              const opacity = item.isCurrent ? 1 : 0.3;
-              const translateX = item.position * 280;
-              const zIndex = item.isCurrent ? 10 : 5 - Math.abs(item.position);
-
-              return (
-                <Link
-                  key={`${item.id}-${item.position}`}
-                  href={item.link}
-                  className="absolute transition-all duration-700 ease-out cursor-pointer group"
-                  style={{
-                    transform: `translateX(${translateX}px) scale(${scale})`,
-                    opacity,
-                    zIndex,
-                  }}
-                  onMouseEnter={() => setIsAutoPlaying(false)}
-                  onMouseLeave={() => setIsAutoPlaying(true)}
-                >
-                  <div className="relative w-64 h-112 overflow-visible rounded-lg">
-                    <Image
-                      src={item.image || "/placeholder.svg"}
-                      alt={item.title}
-                      fill
-                      className={`object-contain transition-all duration-700 ${
-                        item.isCurrent
-                          ? "grayscale-0 brightness-100"
-                          : "grayscale brightness-75"
-                      } group-hover:scale-105`}
-                    />
-
-                    {/* Hover effect */}
-                    <div className="absolute inset-0 transition-all duration-300" />
-                  </div>
-                </Link>
-              );
-            })}
+            <EmblaCarousel slides={portfolioData} />
           </div>
 
           {/* Navigation Arrows */}
