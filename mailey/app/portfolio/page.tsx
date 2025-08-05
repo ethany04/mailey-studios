@@ -35,7 +35,31 @@ const portfolioData = [
   {
     id: 5,
     title: "NATURAL LIGHT",
-    image: "/Cutouts/SheiFeb.png",
+    image: "/Cutouts/RomanticRuins.png",
+    link: "/portfolio/natural-light",
+  },
+  {
+    id: 6,
+    title: "NATURAL LIGHT",
+    image: "/Cutouts/70sFallA_Squared.png",
+    link: "/portfolio/natural-light",
+  },
+  {
+    id: 7,
+    title: "NATURAL LIGHT",
+    image: "/Cutouts/CollageBrandingShoot.png",
+    link: "/portfolio/natural-light",
+  },
+  {
+    id: 8,
+    title: "NATURAL LIGHT",
+    image: "/Cutouts/LyleL.png",
+    link: "/portfolio/natural-light",
+  },
+  {
+    id: 9,
+    title: "NATURAL LIGHT",
+    image: "/Cutouts/MaeMagzine.png",
     link: "/portfolio/natural-light",
   },
 ];
@@ -118,9 +142,9 @@ export default function PhotographyPortfolio() {
         </div>
 
         {/* Image Carousel */}
-        <div className="relative h-[500px] overflow-hidden">
+        <div className="relative h-[500px] overflow-visible">
           <div className="flex items-center justify-center h-full">
-            <EmblaCarousel slides={portfolioData} />
+            <EmblaCarousel slides={portfolioData} currentIndex={currentIndex} />
           </div>
 
           {/* Navigation Arrows */}

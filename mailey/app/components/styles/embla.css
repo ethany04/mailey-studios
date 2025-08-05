@@ -30,7 +30,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: var(--slide-height);
   overflow: visible;
 }
 .embla__controls {

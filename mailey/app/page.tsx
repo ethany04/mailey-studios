@@ -201,7 +201,7 @@ export default function Home() {
             <div className="lg:w-1/3">
               <div className="relative w-80 h-96 mx-auto">
                 <Image
-                  src="/about/maggie_headshot.jpeg"
+                  src="/about/headshot1.jpg"
                   alt="Maggie - Mailey Studios photographer"
                   fill
                   className="object-cover grayscale"

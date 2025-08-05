@@ -29,11 +29,14 @@ type PortfolioItem = {
 
 type PropType = {
   slides: PortfolioItem[];
+  currentIndex: number;
 };
 
 const EmblaCarousel: React.FC<PropType> = (props) => {
-  const { slides } = props;
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const { slides, currentIndex } = props;
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+  });
   const tweenFactor = useRef(0);
   const tweenNodes = useRef<HTMLElement[]>([]);
 
