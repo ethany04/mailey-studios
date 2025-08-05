@@ -2,13 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import {
-  ArrowRight,
-  HelpCircle,
-  MessageCircle,
-  Quote,
-  Star,
-} from "lucide-react";
+import { ArrowRight, Quote } from "lucide-react";
 import PhotoCarousel from "./components/PhotoCarousel";
 import { useEffect, useState } from "react";
 

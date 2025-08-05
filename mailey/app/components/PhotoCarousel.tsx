@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 
 const galleryImages = [
   { src: "/carousel/senior1.jpg", alt: "Portfolio image 1" },
