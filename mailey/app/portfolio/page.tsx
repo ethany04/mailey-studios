@@ -1,10 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { ChevronLeft, ChevronRight, Menu } from "lucide-react";
-import EmblaCarousel from "../components/EmblaCarousel";
+import { useState, useEffect, useRef } from "react";
+
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import EmblaCarousel, { EmblaHandle } from "../components/EmblaCarousel";
 
 // Sample portfolio data
 const portfolioData = [
@@ -41,7 +40,7 @@ const portfolioData = [
   {
     id: 6,
     title: "NATURAL LIGHT",
-    image: "/Cutouts/70sFallA_Squared.png",
+    image: "/Cutouts/70sFall.png",
     link: "/portfolio/natural-light",
   },
   {
@@ -65,46 +64,35 @@ const portfolioData = [
 ];
 
 export default function PhotographyPortfolio() {
-  const [currentIndex, setCurrentIndex] = useState(2); // Start with middle item
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [snaps, setSnaps] = useState<number[]>([]);
+  const emblaRef = useRef<EmblaHandle>(null);
 
-  // Auto-rotate carousel
+  // Hook your arrows to Embla
+  const goToNext = () => {
+    emblaRef.current?.scrollNext();
+    setIsAutoPlaying(false);
+  };
+  const goToPrevious = () => {
+    emblaRef.current?.scrollPrev();
+    setIsAutoPlaying(false);
+  };
+
+  // Dots: scroll directly
+  const goTo = (i: number) => {
+    emblaRef.current?.scrollTo(i);
+    setIsAutoPlaying(false);
+  };
+
+  // Autoplay by driving Embla (keeps state + visuals in sync)
   useEffect(() => {
     if (!isAutoPlaying) return;
-
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % portfolioData.length);
-    }, 4000);
-
-    return () => clearInterval(interval);
+    const id = setInterval(() => emblaRef.current?.scrollNext(), 4000);
+    return () => clearInterval(id);
   }, [isAutoPlaying]);
 
-  const goToNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % portfolioData.length);
-    setIsAutoPlaying(false);
-  };
-
-  const goToPrevious = () => {
-    setCurrentIndex(
-      (prev) => (prev - 1 + portfolioData.length) % portfolioData.length
-    );
-    setIsAutoPlaying(false);
-  };
-
-  const getVisibleItems = () => {
-    const items = [];
-    for (let i = -2; i <= 2; i++) {
-      const index =
-        (currentIndex + i + portfolioData.length) % portfolioData.length;
-      items.push({
-        ...portfolioData[index],
-        position: i,
-        isCurrent: i === 0,
-      });
-    }
-    return items;
-  };
-
+  // Title helpers (unchanged)
   const getCurrentText = () => {
     const current = portfolioData[currentIndex];
     const previous =
@@ -112,16 +100,12 @@ export default function PhotographyPortfolio() {
         (currentIndex - 1 + portfolioData.length) % portfolioData.length
       ];
     const next = portfolioData[(currentIndex + 1) % portfolioData.length];
-
     return { current, previous, next };
   };
-
-  const visibleItems = getVisibleItems();
   const textData = getCurrentText();
 
   return (
     <div className="min-h-screen bg-white text-black font-mono">
-      {/* Main Content */}
       <main className="pt-20 pb-16">
         {/* Text Carousel */}
         <div className="text-center mb-16 h-32 flex flex-col justify-center">
@@ -133,7 +117,6 @@ export default function PhotographyPortfolio() {
               <div className="text-xl md:text-2xl font-bold mb-2 tracking-wider">
                 {textData.current.title}
               </div>
-
               <div className="text-sm text-gray-400 opacity-40">
                 {textData.next.title}
               </div>
@@ -144,17 +127,22 @@ export default function PhotographyPortfolio() {
         {/* Image Carousel */}
         <div className="relative h-[500px] overflow-visible">
           <div className="flex items-center justify-center h-full">
-            <EmblaCarousel slides={portfolioData} currentIndex={currentIndex} />
+            <EmblaCarousel
+              ref={emblaRef}
+              slides={portfolioData}
+              currentIndex={currentIndex}
+              onInit={(api) => setSnaps(api.scrollSnapList())}
+              onSelect={(i) => setCurrentIndex(i)}
+            />
           </div>
 
-          {/* Navigation Arrows */}
+          {/* Page-level Arrows controlling Embla */}
           <button
             onClick={goToPrevious}
             className="absolute left-8 top-1/2 -translate-y-1/2 p-3 bg-white/80 hover:bg-white rounded-full shadow-lg transition-all duration-300 z-20"
           >
             <ChevronLeft size={24} />
           </button>
-
           <button
             onClick={goToNext}
             className="absolute right-8 top-1/2 -translate-y-1/2 p-3 bg-white/80 hover:bg-white rounded-full shadow-lg transition-all duration-300 z-20"
@@ -163,25 +151,24 @@ export default function PhotographyPortfolio() {
           </button>
         </div>
 
-        {/* Dots Indicator */}
+        {/* Page-level Dots controlling Embla */}
         <div className="flex justify-center mt-12 space-x-2">
-          {portfolioData.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => {
-                setCurrentIndex(index);
-                setIsAutoPlaying(false);
-              }}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                index === currentIndex
-                  ? "bg-black w-8"
-                  : "bg-gray-300 hover:bg-gray-400"
-              }`}
-            />
-          ))}
+          {(snaps.length ? snaps : portfolioData.map((_, i) => i)).map(
+            (_, i) => (
+              <button
+                key={i}
+                onClick={() => goTo(i)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  i === currentIndex
+                    ? "bg-black w-8"
+                    : "bg-gray-300 hover:bg-gray-400"
+                }`}
+                aria-label={`Go to slide ${i + 1}`}
+              />
+            )
+          )}
         </div>
 
-        {/* Bottom Info */}
         <div className="text-center mt-16 text-xs text-gray-500 tracking-wider">
           <div className="mb-2">SCROLL TO EXPLORE</div>
           <div>CLICK TO VIEW PROJECT</div>
