@@ -45,7 +45,7 @@ const EmblaCarousel = forwardRef<EmblaHandle, PropType>(
       loop: true,
       align: "center",
       skipSnaps: false,
-      containScroll: false,
+      containScroll: "trimSnaps",
     });
 
     const tweenFactor = useRef(0);
