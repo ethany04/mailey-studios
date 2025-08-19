@@ -4,8 +4,8 @@
 
   /* tweak these to control how many slides are visible */
   --slide-height: 28rem;
-  --slide-size: 45%;
-  --slide-spacing: 4rem;
+  --slide-size: 22%;
+  --slide-spacing: 1.5rem;
 }
 
 @media (min-width: 1024px) {

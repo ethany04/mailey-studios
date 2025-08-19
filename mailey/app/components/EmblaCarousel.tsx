@@ -167,7 +167,6 @@ const EmblaCarousel = forwardRef<EmblaHandle, PropType>(
             })}
           </div>
         </div>
-        {/* Removed internal controls & dots */}
       </div>
     );
   }
