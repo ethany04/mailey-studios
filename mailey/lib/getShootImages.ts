@@ -9,7 +9,10 @@ export type ShootImage = {
 const IMAGE_EXTS = [".png", ".jpg", ".jpeg", ".webp", ".gif", ".avif"];
 
 export async function getShootImages(slug: string): Promise<ShootImage[]> {
-  const shootDir = path.join(process.cwd(), "public", "Shoots", slug);
+  // 🔑 Decode URL-encoded slug first (turns "Shei%20Feb" → "Shei Feb")
+  const decodedSlug = decodeURIComponent(slug);
+
+  const shootDir = path.join(process.cwd(), "public", "Shoots", decodedSlug);
 
   let files: string[];
   try {
@@ -25,7 +28,8 @@ export async function getShootImages(slug: string): Promise<ShootImage[]> {
       a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" })
     )
     .map((file) => ({
-      src: `/Shoots/${slug}/${file}`,
+      // ✅ Use decodedSlug for real folder paths, but keep slug (encoded) for URLs
+      src: `/Shoots/${encodeURIComponent(decodedSlug)}/${file}`,
       filename: file,
     }));
 
@@ -50,7 +54,10 @@ export async function getAllShootSlugs(): Promise<string[]> {
       if (stat.isDirectory()) dirs.push(name);
     } catch {}
   }
-  return dirs.sort((a, b) =>
-    a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" })
-  );
+  // When returning slugs, keep them URL-safe
+  return dirs
+    .sort((a, b) =>
+      a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" })
+    )
+    .map((d) => encodeURIComponent(d));
 }

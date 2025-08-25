@@ -1,26 +1,32 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link"; // 🔑 Import Link
 import { getShootImages, getAllShootSlugs } from "@/lib/getShootImages";
 
-// 👇 params is a Promise now — type it accordingly
 type PageProps = {
   params: Promise<{ slug: string }>;
 };
 
 export default async function PhotographyStudio({ params }: PageProps) {
-  // 👇 await params before using properties
   const { slug } = await params;
+  const decodedSlug = decodeURIComponent(slug);
 
   const photos = await getShootImages(slug);
   if (photos.length === 0) notFound();
 
-  const title = slug
+  const title = decodedSlug
     .replace(/[-_]+/g, " ")
     .replace(/\b\w/g, (c) => c.toUpperCase());
 
   return (
     <div className="min-h-screen bg-white pt-20">
       <section className="max-w-7xl mx-auto px-6 py-16">
+        <Link
+          href="/portfolio"
+          className="inline-block mt-6 px-6 py-3 bg-black text-white shadow hover:bg-gray-800 transition-colors duration-300"
+        >
+          ← Return to Portfolio
+        </Link>
         <div className="text-center space-y-6">
           <h2 className="text-5xl md:text-7xl font-light tracking-tight text-black">
             {title}
@@ -52,7 +58,6 @@ export default async function PhotographyStudio({ params }: PageProps) {
   );
 }
 
-// (unchanged)
 export async function generateStaticParams() {
   const slugs = await getAllShootSlugs();
   return slugs.map((slug) => ({ slug }));
