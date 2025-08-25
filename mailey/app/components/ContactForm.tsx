@@ -176,7 +176,7 @@ export default function ContactForm() {
                 )}
               />
             </div>
-            <Button type="submit" className="ml-auto">
+            <Button type="submit" className="ml-auto cursor-pointer">
               Submit
             </Button>
           </form>
