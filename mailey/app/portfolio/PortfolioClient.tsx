@@ -77,13 +77,13 @@ export default function PortfolioClient({ slides }: Props) {
           {/* Page-level Arrows */}
           <button
             onClick={goToPrevious}
-            className="absolute left-[35%] top-1/2 -translate-y-1/2 p-3 bg-white/80 hover:bg-white rounded-full shadow-lg transition-all duration-300 z-20 cursor-pointer"
+            className="absolute left-[35%] top-1/2 -translate-y-1/2 p-3 transition-all duration-300 z-20 cursor-pointer"
           >
             <ChevronLeft size={24} />
           </button>
           <button
             onClick={goToNext}
-            className="absolute right-[35%] top-1/2 -translate-y-1/2 p-3 bg-white/80 hover:bg-white rounded-full shadow-lg transition-all duration-300 z-20 cursor-pointer"
+            className="absolute right-[35%] top-1/2 -translate-y-1/2 p-3 transition-all duration-300 z-20 cursor-pointer"
           >
             <ChevronRight size={24} />
           </button>
