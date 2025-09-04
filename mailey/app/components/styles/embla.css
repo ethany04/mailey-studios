@@ -11,7 +11,7 @@
 @media (min-width: 1024px) {
   .embla {
     --slide-size: 35%;
-    --slide-spacing: 5rem;
+    --slide-spacing: 10rem;
   }
 }
 
