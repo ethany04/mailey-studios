@@ -145,7 +145,7 @@ const EmblaCarousel = forwardRef<EmblaHandle, PropType>(
                 <div className="embla__slide" key={item.id}>
                   <div className="embla__slide__number">
                     <Link
-                      href={item.link}
+                      href={`/portfolio/${item.link}`}
                       className="absolute transition-all duration-700 ease-out cursor-pointer group"
                     >
                       <div

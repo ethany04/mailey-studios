@@ -18,7 +18,7 @@ const portfolioData = [
     id: 1,
     title: "70s Fall",
     image: "/Cutouts/70s Fall.png",
-    link: "/portfolio/70sfall",
+    link: "70sfall",
     meta: {
       date: "23 October 2024",
       location: "Ann Arbor, MI",
@@ -30,7 +30,7 @@ const portfolioData = [
     id: 2,
     title: "ADDI D",
     image: "/Cutouts/ADDI D.png",
-    link: "/portfolio/addid",
+    link: "addid",
     meta: {
       date: "",
       location: "College Station, TX",
@@ -42,7 +42,7 @@ const portfolioData = [
     id: 3,
     title: "ARI G",
     image: "/Cutouts/ARI G.png",
-    link: "/portfolio/arig",
+    link: "arig",
     meta: {
       date: "4 August 2025",
       location: "College Station, TX",
@@ -54,7 +54,7 @@ const portfolioData = [
     id: 4,
     title: "Collage Branding Shoot",
     image: "/Cutouts/Collage Branding Shoot.png",
-    link: "/portfolio/collagebrandingshoot",
+    link: "collagebrandingshoot",
     meta: {
       date: "25 February 2025",
       location: "Ann Arbor, MI",
@@ -66,7 +66,7 @@ const portfolioData = [
     id: 5,
     title: "Elena A",
     image: "/Cutouts/Elena A.png",
-    link: "/portfolio/elenaa",
+    link: "elenaa",
     meta: {
       date: "3 May 2025",
       location: "Old Baylor Park, TX",
@@ -78,7 +78,7 @@ const portfolioData = [
     id: 6,
     title: "Jayden B",
     image: "/Cutouts/Jayden B.png",
-    link: "/portfolio/jaydenb",
+    link: "jaydenb",
     meta: {
       date: "22 December 2025",
       location: "College Station, TX",
@@ -90,7 +90,7 @@ const portfolioData = [
     id: 7,
     title: "Leah C",
     image: "/Cutouts/Leah.png",
-    link: "/portfolio/leah",
+    link: "leah",
     meta: {
       date: "",
       location: "Bryan, TX",
@@ -102,7 +102,7 @@ const portfolioData = [
     id: 8,
     title: "Lyle L",
     image: "/Cutouts/Lyle L.png",
-    link: "/portfolio/lylel",
+    link: "lylel",
     meta: {
       date: "20 December 2025",
       location: "Bryan, TX",
@@ -114,7 +114,7 @@ const portfolioData = [
     id: 9,
     title: "Mae Magazine",
     image: "/Cutouts/Mae Magazine.png",
-    link: "/portfolio/maemagazine",
+    link: "maemagazine",
     meta: {
       date: "7 December 2024",
       location: "Ann Arbor, MI",
@@ -126,7 +126,7 @@ const portfolioData = [
     id: 10,
     title: "A/Squared Romantic Ruins",
     image: "/Cutouts/Romantic Ruins.png",
-    link: "/portfolio/romanticruins",
+    link: "romanticruins",
     meta: {
       date: "22 February 2025",
       location: "Ann Arbor, MI",
@@ -138,7 +138,7 @@ const portfolioData = [
     id: 11,
     title: "Roo and the Preacher Dad",
     image: "/Cutouts/Roo and the Preacher Dad.png",
-    link: "/portfolio/rooandthepreacherdad",
+    link: "rooandthepreacherdad",
     meta: {
       date: "3 January 2025",
       location: "Bryan, TX",
@@ -150,7 +150,7 @@ const portfolioData = [
     id: 12,
     title: "Sarah Moser",
     image: "/Cutouts/Sarah Moser.png",
-    link: "/portfolio/sarahmoser",
+    link: "sarahmoser",
     meta: {
       date: "15 August, 2024",
       location: "Old Baylor Park, TX",
@@ -162,7 +162,7 @@ const portfolioData = [
     id: 13,
     title: "Shei Magazine February '25 Issue",
     image: "/Cutouts/Shei Feb.png",
-    link: "/portfolio/sheifeb",
+    link: "sheifeb",
     meta: {
       date: "7 December 2024",
       location: "Ann Arbor, MI",
@@ -174,7 +174,7 @@ const portfolioData = [
     id: 14,
     title: "Smriti",
     image: "/Cutouts/Smriti.png",
-    link: "/portfolio/smriti",
+    link: "smriti",
     meta: {
       date: "7 May 2025",
       location: "College Station, TX",
@@ -186,7 +186,7 @@ const portfolioData = [
     id: 15,
     title: "Thirfted Unviersity x Bivouac Collaboration",
     image: "/Cutouts/Thirfted Unviersity x Bivouac Collaboration.png",
-    link: "/portfolio/thrifteduniversityxbivouac",
+    link: "thrifteduniversityxbivouac",
     meta: {
       date: "1 February 2025",
       location: "Ann Arbor, MI",
@@ -198,7 +198,7 @@ const portfolioData = [
     id: 16,
     title: "Thrifted Univeristy Fall 2024 Ambassadors",
     image: "/Cutouts/Thrifted Univeristy Fall 2024 Ambassadors.png",
-    link: "/portfolio/thrifteduniversityfall2024",
+    link: "thrifteduniversityfall2024",
     meta: {
       date: "25 October 2025",
       location: "Burns Park",
@@ -210,7 +210,7 @@ const portfolioData = [
     id: 17,
     title: "Thrifted Univeristy Winter Ambassadors 2025",
     image: "/Cutouts/Thrifted Univeristy Winter Ambassadors 2025.png",
-    link: "/portfolio/thrifteduniversitywinter2025",
+    link: "thrifteduniversitywinter2025",
     meta: {
       date: "4 February 2025",
       location: "Ann Arbor",
@@ -222,7 +222,7 @@ const portfolioData = [
     id: 18,
     title: "Tracy X",
     image: "/Cutouts/Tracy X.png",
-    link: "/portfolio/tracyx",
+    link: "tracyx",
     meta: {
       date: "31 August 2024",
       location: "Ann Arbor, MI",
@@ -234,7 +234,7 @@ const portfolioData = [
     id: 19,
     title: "A/Squared Video Vixen",
     image: "/Cutouts/Video Vixen.png",
-    link: "/portfolio/videovixen",
+    link: "videovixen",
     meta: {
       date: "29 March 2025",
       location: "Ann Arbor, MI",
@@ -246,7 +246,7 @@ const portfolioData = [
     id: 20,
     title: "VIPS Fall '24 Ambassador Shoot",
     image: "/Cutouts/VIPS Fall24 Ambassador Shoot.png",
-    link: "/portfolio/vipsfall2024",
+    link: "vipsfall2024",
     meta: {
       date: "8 November 2024",
       location: "Dawn Treader Library, Ann Arbor",
@@ -258,7 +258,7 @@ const portfolioData = [
     id: 21,
     title: "VIPS Runway Photoshoot",
     image: "/Cutouts/VIPS Runway Photoshoot.png",
-    link: "/portfolio/vipsrunway",
+    link: "vipsrunway",
     meta: {
       date: "10 April 2025",
       location: "Ann Arbor, MI",
@@ -357,13 +357,14 @@ export default function PhotographyPortfolio() {
                   "transition-opacity duration-300",
                   isHovered ? "opacity-100" : "opacity-0",
                 ].join(" ")}
+                // Arrow is at right-[35%]; keep overlay a bit to the left of it:
+                style={{ right: "calc(30% + 1.5rem)" }} // ← 1.5rem (~24px) gutter
               >
-                <div className="text-sm tracking-widest leading-7 text-black/80">
-                  {/* values only, no labels */}
-                  <div>{current.meta.date}</div>
-                  <div>{current.meta.location}</div>
-                  <div>{current.meta.model}</div>
-                  <div>{current.meta.shootType}</div>
+                <div className="text-sm tracking-widest leading-7 text-black/80 max-w-[42ch] pr-4 break-words">
+                  <div>DATE: {current.meta.date}</div>
+                  <div>LOCATION: {current.meta.location}</div>
+                  <div>MODEL: {current.meta.model}</div>
+                  <div>SHOOT TYPE: {current.meta.shootType}</div>
                 </div>
               </div>
 
@@ -377,10 +378,10 @@ export default function PhotographyPortfolio() {
                 ].join(" ")}
               >
                 <div className="text-xs tracking-widest leading-6 text-black/80">
-                  <div>{current.meta.date}</div>
-                  <div>{current.meta.location}</div>
-                  <div>{current.meta.model}</div>
-                  <div>{current.meta.shootType}</div>
+                  <div>DATE: {current.meta.date}</div>
+                  <div>LOCATION: {current.meta.location}</div>
+                  <div>MODEL: {current.meta.model}</div>
+                  <div>SHOOT TYPE: {current.meta.shootType}</div>
                 </div>
               </div>
             </>
