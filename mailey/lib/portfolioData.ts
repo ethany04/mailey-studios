@@ -119,7 +119,7 @@ export const portfolioData: PortfolioItem[] = [
     meta: {
       date: "7 December 2024",
       location: "Ann Arbor, MI",
-      model: "Ally W.",
+      model: "Ally Wang",
       shootType: "Editorial",
     },
   },
@@ -239,7 +239,7 @@ export const portfolioData: PortfolioItem[] = [
     meta: {
       date: "29 March 2025",
       location: "Ann Arbor, MI",
-      model: "Stella",
+      model: "Stella Shor",
       shootType: "Editorial",
     },
   },
