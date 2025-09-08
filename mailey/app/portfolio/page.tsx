@@ -88,18 +88,16 @@ export default function PhotographyPortfolio() {
           {/* Hover Text Overlay (desktop: left column; mobile: centered lower) */}
           {current.meta && (
             <>
-              {/* Desktop */}
+              {/* Desktop overlay — top-left of the carousel */}
               <div
                 className={[
                   "pointer-events-none absolute z-20 hidden md:block",
-                  "left-[22%] top-1/2 -translate-y-1/2",
+                  "top-0 left-[22%] p-6",          // <- anchor + nice inset
                   "transition-opacity duration-300",
                   isHovered ? "opacity-100" : "opacity-0",
                 ].join(" ")}
-                // Arrow is at right-[35%]; keep overlay a bit to the left of it:
-                style={{ right: "calc(30% + 1.5rem)" }} // ← 1.5rem (~24px) gutter
               >
-                <div className="text-sm tracking-widest leading-7 text-black/80 max-w-[42ch] pr-4 break-words">
+                <div className="text-sm tracking-widest leading-7 text-black/80 max-w-[42ch] pr-4 break-words text-left">
                   <div>DATE: {current.meta.date}</div>
                   <div>LOCATION: {current.meta.location}</div>
                   <div>MODEL: {current.meta.model}</div>
@@ -107,22 +105,24 @@ export default function PhotographyPortfolio() {
                 </div>
               </div>
 
-              {/* Mobile */}
+              {/* Mobile overlay — top-left */}
               <div
                 className={[
                   "pointer-events-none absolute z-20 md:hidden",
-                  "left-1/2 -translate-x-1/2 top-[68%] text-center",
+                  "top-0 left-0 p-4",          // <- anchor + inset
                   "transition-opacity duration-300",
                   isHovered ? "opacity-100" : "opacity-0",
                 ].join(" ")}
               >
-                <div className="text-xs tracking-widest leading-6 text-black/80">
+                <div className="text-xs tracking-widest leading-6 text-black/80 text-left">
                   <div>DATE: {current.meta.date}</div>
                   <div>LOCATION: {current.meta.location}</div>
                   <div>MODEL: {current.meta.model}</div>
                   <div>SHOOT TYPE: {current.meta.shootType}</div>
                 </div>
               </div>
+
+
             </>
           )}
         </div>

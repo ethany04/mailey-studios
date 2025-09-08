@@ -29,7 +29,7 @@ export const portfolioData: PortfolioItem[] = [
   },
   {
     id: 2,
-    title: "Addi D",
+    title: "Addi",
     image: "/Cutouts/ADDI D.png",
     link: "addid",
     meta: {
@@ -41,7 +41,7 @@ export const portfolioData: PortfolioItem[] = [
   },
   {
     id: 3,
-    title: "Ari G",
+    title: "Ari",
     image: "/Cutouts/ARI G.png",
     link: "arig",
     meta: {
@@ -65,7 +65,7 @@ export const portfolioData: PortfolioItem[] = [
   },
   {
     id: 5,
-    title: "Elena A",
+    title: "Elena",
     image: "/Cutouts/Elena A.png",
     link: "elenaa",
     meta: {
@@ -77,7 +77,7 @@ export const portfolioData: PortfolioItem[] = [
   },
   {
     id: 6,
-    title: "Jayden B",
+    title: "Jayden",
     image: "/Cutouts/Jayden B.png",
     link: "jaydenb",
     meta: {
@@ -89,7 +89,7 @@ export const portfolioData: PortfolioItem[] = [
   },
   {
     id: 7,
-    title: "Leah C",
+    title: "Leah",
     image: "/Cutouts/Leah.png",
     link: "leah",
     meta: {
@@ -101,7 +101,7 @@ export const portfolioData: PortfolioItem[] = [
   },
   {
     id: 8,
-    title: "Lyle L",
+    title: "Lyle",
     image: "/Cutouts/Lyle L.png",
     link: "lylel",
     meta: {
@@ -149,7 +149,7 @@ export const portfolioData: PortfolioItem[] = [
   },
   {
     id: 12,
-    title: "Sarah Moser",
+    title: "Sarah",
     image: "/Cutouts/Sarah Moser.png",
     link: "sarahmoser",
     meta: {
@@ -173,7 +173,7 @@ export const portfolioData: PortfolioItem[] = [
   },
   {
     id: 14,
-    title: "Smriti K",
+    title: "Smriti",
     image: "/Cutouts/Smriti.png",
     link: "smriti",
     meta: {
@@ -221,7 +221,7 @@ export const portfolioData: PortfolioItem[] = [
   },
   {
     id: 18,
-    title: "Tracy X",
+    title: "Tracy",
     image: "/Cutouts/Tracy X.png",
     link: "tracyx",
     meta: {
@@ -263,7 +263,7 @@ export const portfolioData: PortfolioItem[] = [
     meta: {
       date: "10 April 2025",
       location: "Ann Arbor, MI",
-      model: "",
+      model: "Alyssa",
       shootType: "Branding",
     },
   },
