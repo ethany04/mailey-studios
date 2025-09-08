@@ -33,7 +33,7 @@ export const portfolioData: PortfolioItem[] = [
     image: "/Cutouts/ADDI D.png",
     link: "addid",
     meta: {
-      date: "",
+      date: "20 June 2025",
       location: "College Station, TX",
       model: "Addi Dowlearn",
       shootType: "Editorial",
@@ -93,7 +93,7 @@ export const portfolioData: PortfolioItem[] = [
     image: "/Cutouts/Leah.png",
     link: "leah",
     meta: {
-      date: "",
+      date: "26 July 2025",
       location: "Bryan, TX",
       model: "Leah Cairnes",
       shootType: "Editorial",
