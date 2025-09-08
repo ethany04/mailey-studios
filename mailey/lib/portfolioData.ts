@@ -41,7 +41,7 @@ export const portfolioData: PortfolioItem[] = [
   },
   {
     id: 3,
-    title: "ARI G",
+    title: "Ari G",
     image: "/Cutouts/ARI G.png",
     link: "arig",
     meta: {
@@ -173,7 +173,7 @@ export const portfolioData: PortfolioItem[] = [
   },
   {
     id: 14,
-    title: "Smriti",
+    title: "Smriti K",
     image: "/Cutouts/Smriti.png",
     link: "smriti",
     meta: {
